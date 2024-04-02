@@ -1,0 +1,81 @@
+/* root */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+.sideWrap {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-right: 1px solid #E6E8EB;
+}
+.sideWrap .logo {
+  font-size: 30px;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  color: #ADB4BA;
+}
+.sideWrap .logo span {
+  color: #f88a1c;
+}
+.sideWrap .userInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.sideWrap .userInfo .userNm {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.sideWrap .userInfo .userId {
+  border-radius: 20px;
+  background-color: #E6E8EB;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+.sideWrap .sideList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  padding-bottom: 100px;
+}
+.sideWrap .sideList .menu {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.sideWrap .sideList .menu:last-child {
+  margin-bottom: 0;
+}
+.sideWrap .sideList .menu:hover {
+  color: #f88a1c;
+}
+.sideWrap .sideList .menu.on {
+  font-weight: 700;
+  color: #f88a1c;
+  background-color: rgba(248, 138, 28, 0.1);
+}
+.sideWrap .logoutWrap {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.sideWrap .logoutWrap .logout {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/*# sourceMappingURL=framework.module.css.map */
