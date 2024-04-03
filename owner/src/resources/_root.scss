@@ -1,0 +1,85 @@
+/* root */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+
+// -------------------------------------- 변수 -------------------------------------- //
+// [all] color
+$mainColor: #f88a1c;
+// [black] color
+$black1Color: #F2F4F5;
+$black2Color: #E6E8EB;
+$black3Color: #CCD1D7;
+$black4Color: #ADB4BA;
+$black5Color: #778088;
+$black6Color: #5A636A;
+$black7Color: #262C31;
+
+// [all] fonts-size
+
+// [all] fonts-weight
+$blackFont     : 900;
+$extraBoldFont : 800;
+$boldFont      : 700;
+$semiBoldFont  : 600;
+$mediumFont    : 500;
+$regularFont   : 400;
+$lightFont     : 300;
+$extraLightFont: 200;
+$thinFont      : 100;
+
+// -------------------------------------- mixin -------------------------------------- //
+// [flex] 정가운데
+@mixin flexMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// [flex] 가로 가운데
+@mixin flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+// [flex] 가로 양끝, 세로 가운데
+@mixin flexCenterBetween {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+// [flex] 세로 가운데
+@mixin flexJustifyCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+// [flex] 가로 가운데, 세로 양끝
+@mixin flexBetweenCenter {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+// [flex] Column
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+// [flex] Row
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+// [flex] 오른쪽 정렬
+@mixin flexFlexEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+// [flex] wrap
+@mixin flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+// [flex] justify between
+@mixin flexJustifyBetween {
+  display: flex;
+  justify-content: space-between;
+}
