@@ -52,6 +52,10 @@
   margin-bottom: 20px;
   cursor: pointer;
   border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .sideWrap .sideList .side:last-child {
   margin-bottom: 0;
@@ -63,6 +67,10 @@
   font-weight: 700;
   color: #f88a1c;
   background-color: rgba(248, 138, 28, 0.1);
+}
+.sideWrap .sideList .side span {
+  margin-right: 20px;
+  color: #f88a1c;
 }
 .sideWrap .logoutWrap {
   width: 100%;

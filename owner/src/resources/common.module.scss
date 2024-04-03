@@ -12,6 +12,10 @@
       width: 100%;
       @include flexJustifyBetween;
       margin-bottom: 20px;
+      span {
+        margin-left: 10px;
+        color: $mainColor;
+      }
       .pageBtn {
         border: 0;
         background-color: $mainColor;
@@ -19,6 +23,12 @@
         width: 80px;
         border-radius: 14px;
         color: #FFFFFF;
+      }
+    }
+    .subTitle {
+      margin: {
+        top: 30px;
+        bottom: 10px;
       }
     }
     .storeContent {
@@ -292,6 +302,128 @@
         margin-top: 20px;
       }
     }
+    // 주문 접수
+    .ordTableWrap {
+      width: 100%;
+      &:last-child {
+        margin-top: 20px;
+        .ordTable {
+          height: calc(100vh - 460.8px);
+        }
+      }
+      .ordTableHead p,
+      .ordTable .ordList p {
+        width: calc(100% / 7);
+        padding: {
+          top: 5px;
+          bottom: 5px;
+        }
+        font-size: .9rem;
+        border-right: 2px solid $black1Color;
+        &:nth-child(2) {
+          width: calc((100% / 7) * 3);
+        }
+        &:nth-child(4) {
+          width: calc((100% / 7) * 2);
+        }
+        &:last-child {
+          border-right: 0;
+        }
+      }
+      .ordTableHead {
+        width: 100%;
+        background-color: $black2Color;
+        display: flex;
+        border-radius: 8px;
+        p {
+          color: $black5Color;
+          text-align: center;
+        }
+      }
+      .ordTable {
+        width: 100%;
+        height: 170px;
+        overflow: auto;
+        margin-top: 5px;
+        .ordList {
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 8px;
+          display: flex;
+          cursor: pointer;
+          transition: all .2s;
+          margin-bottom: 5px;
+          &:hover {
+            background-color: #FFFFFF;
+            transition: all .2s;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          p {
+            padding: 10px 15px;
+            &:nth-child(2) {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            &:nth-child(3),
+            &:nth-child(4) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .srchOrdListWrap {
+      width: 100%;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      .srchOrdList {
+        width: calc(100% - 60px);
+        display: flex;
+        .srch {
+          width: 50%;
+          .inptWrap {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            label {
+              @include flexAlignCenter;
+              width: 70px;
+              margin-bottom: 0;
+            }
+            .srchDate {
+              display: flex;
+              width: calc(100% - 70px);
+              .inpt {
+                width: calc(50% - 10px);
+                margin-bottom: 0;
+              }
+              span {
+                width: 20px;
+                @include flexMiddle;
+              }
+            }
+          }
+          &:last-child {
+            margin-left: 50px;
+            .inpt {
+              width: calc(100% - 70px);
+            }
+          }
+        }
+      }
+      .inq {
+        width: 50px;
+        margin-left: 10px;
+        background-color: $mainColor;
+        color: #FFFFFF;
+        border-radius: 8px;
+      }
+    }
     // 팝업
     .popupContainer {
       position: absolute;
@@ -303,7 +435,6 @@
       backdrop-filter: blur(2px);
       .popupContent {
         background-color: #FFFFFF;
-        width: 300px;
         height: 80%;
         border-radius: 20px;
         @include center;

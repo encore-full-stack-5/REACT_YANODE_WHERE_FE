@@ -16,6 +16,10 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.container .content .pageTitleWrap span {
+  margin-left: 10px;
+  color: #f88a1c;
+}
 .container .content .pageTitleWrap .pageBtn {
   border: 0;
   background-color: #f88a1c;
@@ -23,6 +27,10 @@
   width: 80px;
   border-radius: 14px;
   color: #FFFFFF;
+}
+.container .content .subTitle {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 .container .content .storeContent {
   width: 100%;
@@ -300,6 +308,130 @@
   color: #FFFFFF;
   margin-top: 20px;
 }
+.container .content .ordTableWrap {
+  width: 100%;
+}
+.container .content .ordTableWrap:last-child {
+  margin-top: 20px;
+}
+.container .content .ordTableWrap:last-child .ordTable {
+  height: calc(100vh - 460.8px);
+}
+.container .content .ordTableWrap .ordTableHead p,
+.container .content .ordTableWrap .ordTable .ordList p {
+  width: 14.2857142857%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 0.9rem;
+  border-right: 2px solid #F2F4F5;
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(2),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(2) {
+  width: 42.8571428571%;
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(4),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(4) {
+  width: 28.5714285714%;
+}
+.container .content .ordTableWrap .ordTableHead p:last-child,
+.container .content .ordTableWrap .ordTable .ordList p:last-child {
+  border-right: 0;
+}
+.container .content .ordTableWrap .ordTableHead {
+  width: 100%;
+  background-color: #E6E8EB;
+  display: flex;
+  border-radius: 8px;
+}
+.container .content .ordTableWrap .ordTableHead p {
+  color: #778088;
+  text-align: center;
+}
+.container .content .ordTableWrap .ordTable {
+  width: 100%;
+  height: 170px;
+  overflow: auto;
+  margin-top: 5px;
+}
+.container .content .ordTableWrap .ordTable .ordList {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 5px;
+}
+.container .content .ordTableWrap .ordTable .ordList:hover {
+  background-color: #FFFFFF;
+  transition: all 0.2s;
+}
+.container .content .ordTableWrap .ordTable .ordList:last-child {
+  margin-bottom: 0;
+}
+.container .content .ordTableWrap .ordTable .ordList p {
+  padding: 10px 15px;
+}
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(2) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(3), .container .content .ordTableWrap .ordTable .ordList p:nth-child(4) {
+  text-align: center;
+}
+.container .content .srchOrdListWrap {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+}
+.container .content .srchOrdListWrap .srchOrdList {
+  width: calc(100% - 60px);
+  display: flex;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch {
+  width: 50%;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap label {
+  display: flex;
+  align-items: center;
+  width: 70px;
+  margin-bottom: 0;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate {
+  display: flex;
+  width: calc(100% - 70px);
+}
+.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate .inpt {
+  width: calc(50% - 10px);
+  margin-bottom: 0;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate span {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch:last-child {
+  margin-left: 50px;
+}
+.container .content .srchOrdListWrap .srchOrdList .srch:last-child .inpt {
+  width: calc(100% - 70px);
+}
+.container .content .srchOrdListWrap .inq {
+  width: 50px;
+  margin-left: 10px;
+  background-color: #f88a1c;
+  color: #FFFFFF;
+  border-radius: 8px;
+}
 .container .content .popupContainer {
   position: absolute;
   left: 0;
@@ -311,7 +443,6 @@
 }
 .container .content .popupContainer .popupContent {
   background-color: #FFFFFF;
-  width: 300px;
   height: 80%;
   border-radius: 20px;
   position: absolute;

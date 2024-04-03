@@ -50,6 +50,7 @@
       margin-bottom: 20px;
       cursor: pointer;
       border-radius: 15px;
+      @include flexCenterBetween;
       &:last-child {
         margin-bottom: 0;
       }
@@ -60,6 +61,10 @@
         font-weight: $boldFont;
         color: $mainColor;
         background-color: rgba(248, 138, 28, 0.1);
+      }
+      span {
+        margin-right: 20px;
+        color: $mainColor;
       }
     }
   }
