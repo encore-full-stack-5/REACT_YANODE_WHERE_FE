@@ -255,6 +255,9 @@
   border-radius: 10px;
   background-color: #E6E8EB;
 }
+.container .content .menuForm .inptWrap textarea {
+  min-height: 100px;
+}
 .container .content .menuForm .optnAdd {
   width: 100%;
   height: 40px;
@@ -377,7 +380,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.container .content .ordTableWrap .ordTable .ordList p:nth-child(3), .container .content .ordTableWrap .ordTable .ordList p:nth-child(4) {
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(3), .container .content .ordTableWrap .ordTable .ordList p:nth-child(4), .container .content .ordTableWrap .ordTable .ordList p:nth-child(5) {
   text-align: center;
 }
 .container .content .srchOrdListWrap {
@@ -432,6 +435,51 @@
   color: #FFFFFF;
   border-radius: 8px;
 }
+.container .content .ordFormWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 27px);
+}
+.container .content .ordFormWrap .ordForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .content .ordFormWrap .ordForm .inptWrap {
+  width: calc((100% - 20px) / 3);
+  margin-right: 10px;
+}
+.container .content .ordFormWrap .ordForm .inptWrap:last-child {
+  margin-right: 0;
+}
+.container .content .ordFormWrap .ordTableWrap {
+  margin-top: 0;
+  flex: 1;
+  height: auto;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTable {
+  height: calc(100% - 27.5px - 5px);
+  max-height: calc(100% - 27.5px - 5px);
+}
+.container .content .ordFormWrap .ordTableWrap .ordList {
+  border-bottom: 2px solid #F2F4F5;
+  margin-bottom: 0;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList:first-child {
+  border-top: 2px solid #F2F4F5;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p,
+.container .content .ordFormWrap .ordTableWrap .ordList p {
+  width: 12.5% !important;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p:nth-child(1),
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(1) {
+  width: 37.5% !important;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p:nth-child(3),
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(3) {
+  width: 25% !important;
+}
 .container .content .popupContainer {
   position: absolute;
   left: 0;
@@ -475,7 +523,7 @@
   font-size: 0.9rem;
   margin-bottom: 5px;
   padding-left: 10px;
-  color: #ADB4BA;
+  color: #778088;
 }
 .container .content .inptWrap .inpt {
   width: 100%;

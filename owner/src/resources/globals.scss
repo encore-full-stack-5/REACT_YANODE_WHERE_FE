@@ -49,9 +49,14 @@ textarea {
   border: 2px solid $black2Color;
   height: 40px;
   border-radius: 14px;
+  outline-color: $black4Color;
 }
 input {
   padding: 10px;
+  &:read-only {
+    outline: 0;
+    background-color: #fafafa;
+  }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
