@@ -1,6 +1,4 @@
 /* root */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
-
 // -------------------------------------- 변수 -------------------------------------- //
 // [all] color
 $mainColor: #f88a1c;
@@ -25,6 +23,9 @@ $regularFont   : 400;
 $lightFont     : 300;
 $extraLightFont: 200;
 $thinFont      : 100;
+
+// border
+$border: 1px solid $black2Color;
 
 // -------------------------------------- mixin -------------------------------------- //
 // [flex] 정가운데
@@ -82,4 +83,12 @@ $thinFont      : 100;
 @mixin flexJustifyBetween {
   display: flex;
   justify-content: space-between;
+}
+
+// 중앙
+@mixin center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
