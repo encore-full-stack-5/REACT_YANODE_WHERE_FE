@@ -6,7 +6,7 @@ export default function menuDtl() {
         <>
             <div className={common.popupContainer}>
                 <div className={common.popupContent}>
-                    <div className={common.popupTitle}>
+                    <div className={common.popupTitle} style={{ width: '300px' }}>
                         <h3>메뉴 수정/등록</h3>
                         <button className={common.close}>×</button>
                     </div>

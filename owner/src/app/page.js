@@ -7,10 +7,11 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/menu");
+    router.push("/ord");
   }, []);
   return (
       <>
+
       </>
   )
 }
