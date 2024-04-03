@@ -52,10 +52,15 @@ textarea {
   border: 2px solid #E6E8EB;
   height: 40px;
   border-radius: 14px;
+  outline-color: #ADB4BA;
 }
 
 input {
   padding: 10px;
+}
+input:read-only {
+  outline: 0;
+  background-color: #fafafa;
 }
 
 input::-webkit-outer-spin-button,

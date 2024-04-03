@@ -46,7 +46,7 @@ export default function menuDtl() {
                                 placeholder="옵션명"
                             />
                             <input
-                                type="text"
+                                type="number"
                                 className={common.inpt}
                                 placeholder="옵션 가격"
                             />

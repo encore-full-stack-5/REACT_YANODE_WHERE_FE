@@ -3,13 +3,14 @@ import framework from '@/resources/framework.module.css';
 export default function Side() {
     return (
         <>
-            <div className={framework.sideWrap}>`
-                {/* 로고 이미지 넣기 */}
-                <p className={framework.logo}><span>W</span>here?</p>
-
-                <div className={framework.userInfo}>
-                    <p className={framework.userNm}><b>야노드</b>님</p>
-                    <p className={framework.userId}>yanode00</p>
+            <div className={framework.sideWrap}>
+                <div>
+                    {/* 로고 이미지 넣기 */}
+                    <p className={framework.logo}><span>W</span>here?</p>
+                    <div className={framework.userInfo}>
+                        <p className={framework.userNm}><b>야노드</b>님</p>
+                        <p className={framework.userId}>yanode00</p>
+                    </div>
                 </div>
 
                 {/* 메뉴 */}

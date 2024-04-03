@@ -106,6 +106,7 @@ export default function ord() {
                         <p>상품명</p>
                         <p>고객명</p>
                         <p>주문일시</p>
+                        <p>주문상태</p>
                     </div>
                     <ul className={common.ordTable}>
                         <li className={common.ordList}>
@@ -117,6 +118,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>결제완료</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -127,6 +130,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>결제완료</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -137,6 +142,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>환불</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -147,6 +154,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>반품</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -157,6 +166,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>취소</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -167,6 +178,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>결제완료</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -177,6 +190,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>결제완료</p>
                         </li>
                         <li className={common.ordList}>
                             {/*주문ID*/}
@@ -187,6 +202,8 @@ export default function ord() {
                             <p>박미람</p>
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
+                            {/*주문상태*/}
+                            <p>결제완료</p>
                         </li>
                     </ul>
                 </div>
