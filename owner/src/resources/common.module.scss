@@ -226,7 +226,6 @@
     .menuForm {
       width: 100%;
       @include flexColumn;
-      margin-top: 10px;
       height: calc(100% - 37px - 152px);
       overflow: auto;
       .menuImgReg {
@@ -379,13 +378,138 @@
         }
       }
     }
-    .srchOrdListWrap {
+    // 주문 상세
+    .ordFormWrap {
+      width: 100%;
+      @include flexColumn;
+      height: calc(100% - 36px - 50px);
+      overflow: auto;
+      .ordForm {
+        @include flexWrap;
+        &:has(.prc) {
+          .inptWrap {
+            margin-bottom: 0;
+          }
+        }
+        .inptWrap {
+          width: calc((100% - 20px) / 3);
+          margin-right: 10px;
+          &:last-child {
+            margin-right: 0;
+          }
+          &.prc {
+            .inpt {
+              text-align: right;
+            }
+          }
+        }
+      }
+      .ordTableWrap {
+        margin-top: 0;
+        height: auto;
+        margin-bottom: 10px;
+        .ordTable {
+          max-height: 100px;
+          height: auto;
+          overflow: auto;
+        }
+        .ordList {
+          border-bottom: 2px solid $black1Color;
+          margin-bottom: 0;
+          cursor: auto;
+          background-color: #FFFFFF;
+          &:first-child {
+            border-top: 2px solid $black1Color;
+          }
+          p {
+            &:nth-child(2),
+            &:nth-child(4) {
+              text-align: right;
+            }
+            &:nth-child(3) {
+              text-align: left;
+            }
+          }
+        }
+        .ordTableHead p,
+        .ordList p {
+          width: calc(100% / 8) !important;
+          &:nth-child(1) {
+            width: calc((100% / 8) * 3) !important;
+          }
+          &:nth-child(3) {
+            width: calc((100% / 8) * 2) !important;
+          }
+        }
+      }
+    }
+    .ordBtn {
+      width: 80px;
+      height: 30px;
+      background-color: $mainColor;
+      border-radius: 10px;
+      margin-top: 20px;
+      float: right;
+      color: #FFFFFF;
+    }
+    // 팝업
+    .popupContainer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100dvh;
+      background-color: rgba(0 0 0 / 30%);
+      backdrop-filter: blur(2px);
+      .popupContent {
+        background-color: #FFFFFF;
+        height: 80%;
+        border-radius: 20px;
+        @include center;
+        padding: 20px;
+        .popupTitle {
+          width: 100%;
+          @include flexCenterBetween;
+          margin-bottom: 10px;
+          .close {
+            font-size: 1.4rem;
+            color: $black5Color;
+          }
+        }
+        .subTitle {
+          margin-top: 0;
+        }
+      }
+    }
+    // common
+    .inptWrap {
+      margin-bottom: 10px;
+      @include flexColumn;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      label {
+        display: block;
+        font-size: .9rem;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        color: $black5Color;
+      }
+      .inpt {
+        width: 100%;
+        margin-bottom: 5px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .srchListWrap {
       width: 100%;
       background-color: #FFFFFF;
       border-radius: 10px;
       padding: 10px;
       display: flex;
-      .srchOrdList {
+      .srchList {
         width: calc(100% - 60px);
         display: flex;
         .srch {
@@ -412,7 +536,7 @@
               }
             }
           }
-          &:last-child {
+          &:nth-child(2) {
             margin-left: 50px;
             .inpt {
               width: calc(100% - 70px);
@@ -426,95 +550,6 @@
         background-color: $mainColor;
         color: #FFFFFF;
         border-radius: 8px;
-      }
-    }
-    // 주문 상세
-    .ordFormWrap {
-      width: 100%;
-      @include flexColumn;
-      height: calc(100% - 27px);
-      .ordForm {
-        @include flexWrap;
-        .inptWrap {
-          width: calc((100% - 20px) / 3);
-          margin-right: 10px;
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-      .ordTableWrap {
-        margin-top: 0;
-        flex: 1;
-        height: auto;
-        .ordTable {
-          height: calc(100% - 27.5px - 5px);
-          max-height: calc(100% - 27.5px - 5px);
-        }
-        .ordList {
-          border-bottom: 2px solid $black1Color;
-          margin-bottom: 0;
-          &:first-child {
-            border-top: 2px solid $black1Color;
-          }
-        }
-        .ordTableHead p,
-        .ordList p {
-          width: calc(100% / 8) !important;
-          &:nth-child(1) {
-            width: calc((100% / 8) * 3) !important;
-          }
-          &:nth-child(3) {
-            width: calc((100% / 8) * 2) !important;
-          }
-        }
-      }
-    }
-    // 팝업
-    .popupContainer {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100dvh;
-      background-color: rgba(0 0 0 / 30%);
-      backdrop-filter: blur(2px);
-      .popupContent {
-        background-color: #FFFFFF;
-        height: 80%;
-        border-radius: 20px;
-        @include center;
-        padding: 20px;
-        .popupTitle {
-          width: 100%;
-          @include flexCenterBetween;
-          .close {
-            font-size: 1.4rem;
-            color: $black5Color;
-          }
-        }
-      }
-    }
-    // common
-    .inptWrap {
-      margin-bottom: 10px;
-      @include flexColumn;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      label {
-        display: block;
-        font-size: .9rem;
-        margin-bottom: 5px;
-        padding-left: 10px;
-        color: $black5Color;
-      }
-      .inpt {
-        width: 100%;
-        margin-bottom: 5px;
-        &:last-child {
-          margin-bottom: 0;
-        }
       }
     }
   }

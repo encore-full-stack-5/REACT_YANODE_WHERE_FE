@@ -70,8 +70,8 @@ export default function ord() {
 
                 {/*주문 내역 조회*/}
                 <h4 className={common.subTitle}>주문 내역</h4>
-                <div className={common.srchOrdListWrap}>
-                    <ul className={common.srchOrdList}>
+                <div className={common.srchListWrap}>
+                    <ul className={common.srchList}>
                         <li className={common.srch}>
                             <div className={common.inptWrap}>
                                 <label>주문일자</label>

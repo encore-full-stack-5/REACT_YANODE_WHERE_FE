@@ -18,8 +18,8 @@ export default function Side() {
                     <li className={framework.side}>대시보드</li>
                     <li className={[framework.side].join(' ')}>가게 정보</li>
                     <li className={[framework.side].join(' ')}>메뉴 등록</li>
-                    <li className={[framework.side, framework.on].join(' ')}>주문 접수<span>3</span></li>
-                    <li className={framework.side}>매출 조회</li>
+                    <li className={[framework.side].join(' ')}>주문 접수<span>3</span></li>
+                    <li className={[framework.side, framework.on].join(' ')}>매출 조회</li>
                     <li className={framework.side}>내 정보</li>
                 </ul>
                 <div className={framework.logoutWrap}>
