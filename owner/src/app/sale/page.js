@@ -1,4 +1,6 @@
 import common from "@/resources/common.module.css";
+import Date from "@/app/component/Date";
+import Input from "@/app/component/Input";
 
 export default function sale() {
     return (
@@ -12,20 +14,7 @@ export default function sale() {
                         <div className={common.srchListWrap}>
                             <ul className={common.srchList}>
                                 <li className={[common.srch, common.full].join(' ')}>
-                                    <div className={common.inptWrap}>
-                                        <label>날짜</label>
-                                        <div className={common.srchDate}>
-                                            <input
-                                                type="date"
-                                                className={common.inpt}
-                                            />
-                                            <span>~</span>
-                                            <input
-                                                type="date"
-                                                className={common.inpt}
-                                            />
-                                        </div>
-                                    </div>
+                                    <Date name={"날짜"}/>
                                 </li>
                             </ul>
                             <button className={common.inq}>조회</button>
@@ -49,13 +38,7 @@ export default function sale() {
                         <div className={common.srchListWrap}>
                             <ul className={common.srchList}>
                                 <li className={[common.srch, common.full].join(' ')}>
-                                    <div className={common.inptWrap}>
-                                        <label>상품</label>
-                                        <input
-                                            type="text"
-                                            className={common.inpt}
-                                        />
-                                    </div>
+                                    <Input name={"상품"} type={"text"}/>
                                 </li>
                             </ul>
                             <button className={common.inq}>조회</button>

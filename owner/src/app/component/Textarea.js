@@ -1,12 +1,11 @@
 import common from "@/resources/common.module.css";
 
-const Input = ({ name, type, ...props}) => {
+const Textarea = ({ name, ...props}) => {
     return (
         <>
             <div className={common.inptWrap}>
                 <label>{name}</label>
-                <input
-                    type={type}
+                <textarea
                     {...props}
                     className={common.inpt}
                 />
@@ -15,4 +14,4 @@ const Input = ({ name, type, ...props}) => {
     )
 }
 
-export default Input;
+export default Textarea;

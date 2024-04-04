@@ -1,4 +1,6 @@
 import common from "@/resources/common.module.css";
+import Date from "@/app/component/Date";
+import Input from "@/app/component/Input";
 
 export default function ord() {
     return (
@@ -25,46 +27,6 @@ export default function ord() {
                             {/*주문일시*/}
                             <p>2024-04-03 17:48:33</p>
                         </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>2</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>3</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>4</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>5</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                        </li>
                     </ul>
                 </div>
 
@@ -73,29 +35,10 @@ export default function ord() {
                 <div className={common.srchListWrap}>
                     <ul className={common.srchList}>
                         <li className={common.srch}>
-                            <div className={common.inptWrap}>
-                                <label>주문일자</label>
-                                <div className={common.srchDate}>
-                                    <input
-                                        type="date"
-                                        className={common.inpt}
-                                    />
-                                    <span>~</span>
-                                    <input
-                                        type="date"
-                                        className={common.inpt}
-                                    />
-                                </div>
-                            </div>
+                            <Date name={"주문일자"}/>
                         </li>
                         <li className={common.srch}>
-                            <div className={common.inptWrap}>
-                                <label>주문번호</label>
-                                <input
-                                    type="number"
-                                    className={common.inpt}
-                                />
-                            </div>
+                            <Input name={"주문번호"} type={"text"}/>
                         </li>
                     </ul>
                     <button className={common.inq}>조회</button>
@@ -112,90 +55,6 @@ export default function ord() {
                         <li className={common.ordList}>
                             {/*주문ID*/}
                             <p>1</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>결제완료</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>2</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>결제완료</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>3</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>환불</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>4</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>반품</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>5</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>취소</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>6</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>결제완료</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>7</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>결제완료</p>
-                        </li>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>8</p>
                             {/*상품명*/}
                             <p>평양 물냉면</p>
                             {/*고객명*/}
