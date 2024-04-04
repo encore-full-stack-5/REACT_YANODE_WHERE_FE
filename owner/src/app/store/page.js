@@ -1,7 +1,26 @@
+"use client"
+
+import axios from 'axios';
 import common from '@/resources/common.module.css';
 import Image from "next/image";
+import { useEffect, useState } from 'react';
 
 export default function store() {
+    const [data, setData] = useState();
+
+    const getdata = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/owners/stores/27");
+            setData(response.data[0]);
+        } catch (error) {
+            alert('조회 에러');
+        }
+    }
+
+    useEffect(() => {
+        getdata();
+      }, []);
+
     return (
         <>
             <div>
@@ -21,6 +40,7 @@ export default function store() {
                                 <input
                                     type="text"
                                     className={common.inpt}
+                                    defaultValue={data?(data.CTGRY): ""}
                                 />
                             </div>
                             <div className={common.inptWrap}>
@@ -28,6 +48,7 @@ export default function store() {
                                 <input
                                     type="text"
                                     className={common.inpt}
+                                    defaultValue={data?(data.BSC_ADDR + " " + data.DTL_ADDR):""}
                                 />
                             </div>
                             <div className={common.inptWrap}>
