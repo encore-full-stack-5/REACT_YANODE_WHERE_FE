@@ -1,6 +1,6 @@
 import common from "@/resources/common.module.css";
 
-const Date = ({ name, props}) => {
+const Date = ({ name, ...props}) => {
     return (
         <>
             <div className={common.inptWrap}>

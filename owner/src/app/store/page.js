@@ -3,6 +3,8 @@
 import axios from 'axios';
 import common from '@/resources/common.module.css';
 import Image from "next/image";
+import Input from "@/app/component/Input";
+import Textarea from "@/app/component/Textarea";
 import { useEffect, useState } from 'react';
 
 export default function store() {
@@ -35,67 +37,37 @@ export default function store() {
                             <Image src={''} alt={'가게 사진'} />
                         </div>
                         <div className={common.storeInptWrap}>
-                            <div className={common.inptWrap}>
-                                <label>업종</label>
-                                <input
-                                    type="text"
-                                    className={common.inpt}
-                                    defaultValue={data?(data.CTGRY): ""}
-                                />
-                            </div>
+                            <Input name={"업종"} type={"text"} />
                             <div className={common.inptWrap}>
                                 <label>위치</label>
                                 <input
                                     type="text"
                                     className={common.inpt}
-                                    defaultValue={data?(data.BSC_ADDR + " " + data.DTL_ADDR):""}
+                                    placeholder={"기본 주소"}
                                 />
-                            </div>
-                            <div className={common.inptWrap}>
-                                <label>가게 이름</label>
                                 <input
                                     type="text"
                                     className={common.inpt}
+                                    placeholder={"상세 주소"}
                                 />
                             </div>
+                            <Input name={"가게 이름"} type={"type"} />
                         </div>
                     </div>
                     <div className={common.storeLayout}>
                         <div className={common.storeInptWrap}>
-                            <div className={common.inptWrap}>
-                                <label>가게 설명</label>
-                                <textarea
-                                    className={common.inpt}
-                                />
-                            </div>
+                            <Textarea name={"가게 설명"} />
                         </div>
                     </div>
                     <div className={common.storeLayout}>
                         <div className={common.storeInptWrap}>
                             <div className={common.setTime}>
-                                <div className={common.inptWrap}>
-                                    <label>OPEN</label>
-                                    <input
-                                        type="time"
-                                        className={common.inpt}
-                                    />
-                                </div>
+                                <Input name={"OPEN"} type={"time"}/>
                                 <span>~</span>
-                                <div className={common.inptWrap}>
-                                    <label>CLOSE</label>
-                                    <input
-                                        type="time"
-                                        className={common.inpt}
-                                    />
-                                </div>
+                                <Input name={"CLOSE"} type={"time"}/>
                             </div>
                             <div className={common.inptWrap}>
-                                <label>전화번호</label>
-                                <input
-                                    type="number"
-                                    placeholder={'숫자만 입력'}
-                                    className={common.inpt}
-                                />
+                                <Input name={"전화번호"} type={"number"} placeholder={"숫자만 입력"}/>
                             </div>
                         </div>
                     </div>

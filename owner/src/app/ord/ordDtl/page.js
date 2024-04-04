@@ -1,5 +1,7 @@
 import common from "@/resources/common.module.css";
 import Image from "next/image";
+import Date from "@/app/component/Date";
+import Input from "@/app/component/Input";
 
 export default function ordDtl() {
     return (
@@ -14,15 +16,7 @@ export default function ordDtl() {
                         <div className={common.ordFormWrap}>
                             <h4 className={common.subTitle}>주문 정보</h4>
                             <div className={common.ordForm}>
-                                <div className={common.inptWrap}>
-                                    <label>주문번호</label>
-                                    <input
-                                        type="number"
-                                        className={common.inpt}
-                                        value={"1"}
-                                        readOnly
-                                    />
-                                </div>
+                                <Input name={"주문번호"} value={"!"} readOnly />
                                 <div className={common.inptWrap}>
                                     <label>주문자명</label>
                                     <input
