@@ -452,6 +452,127 @@
   float: right;
   color: #FFFFFF;
 }
+.container .content .saleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container .content .saleContainer .saleSrchContainer .saleSrchWrap {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px);
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p {
+  color: #778088;
+  text-align: center;
+  width: 25%;
+  font-size: 0.9rem;
+  border-right: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p:first-child,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p:first-child {
+  width: 75%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p:last-child,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p:last-child {
+  border-right: 0;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap {
+  width: 100%;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTableHead {
+  width: 100%;
+  background-color: #E6E8EB;
+  display: flex;
+  border-radius: 8px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTableHead p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable {
+  width: 100%;
+  height: 145px;
+  overflow: auto;
+  margin-top: 5px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList {
+  width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  transition: all 0.2s;
+  border-bottom: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList:first-child {
+  border-top: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList p {
+  padding: 10px 15px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList p:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.container .content .saleContainer .historyContainer {
+  width: 100%;
+  margin-top: 20px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory {
+  width: calc((100% - 40px) / 3);
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory .historyWrap {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory .historyWrap .history {
+  display: flex;
+  flex-direction: column;
+}
+.container .content .saleContainer .history {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #E6E8EB;
+}
+.container .content .saleContainer .history:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.container .content .saleContainer .history .historyNm {
+  color: #778088;
+  margin-bottom: 5px;
+}
+.container .content .saleContainer .history .historyVal {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
 .container .content .popupContainer {
   position: absolute;
   left: 0;
@@ -521,6 +642,9 @@
 }
 .container .content .srchListWrap .srchList .srch {
   width: 50%;
+}
+.container .content .srchListWrap .srchList .srch.full {
+  width: 100%;
 }
 .container .content .srchListWrap .srchList .srch .inptWrap {
   width: 100%;
