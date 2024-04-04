@@ -386,9 +386,15 @@
       overflow: auto;
       .ordForm {
         @include flexWrap;
-        &:has(.prc) {
+        &.prc {
           .inptWrap {
             margin-bottom: 0;
+            &:nth-child(2),
+            &:nth-child(3) {
+              .inpt {
+                text-align: right;
+              }
+            }
           }
         }
         .inptWrap {
@@ -396,11 +402,6 @@
           margin-right: 10px;
           &:last-child {
             margin-right: 0;
-          }
-          &.prc {
-            .inpt {
-              text-align: right;
-            }
           }
         }
       }

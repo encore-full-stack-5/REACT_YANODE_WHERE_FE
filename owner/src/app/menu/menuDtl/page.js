@@ -1,5 +1,9 @@
 import common from "@/resources/common.module.css";
 import Image from "next/image";
+import Date from "@/app/component/Date";
+import Input from "@/app/component/Input";
+import Textarea from "@/app/component/Textarea";
+import {Teko} from "next/dist/compiled/@next/font/dist/google";
 
 export default function menuDtl() {
     return (
@@ -17,26 +21,17 @@ export default function menuDtl() {
                                 <Image src={''} alt={'사진 추가'}/>
                             </div>
                         </div>
-                        <div className={common.inptWrap}>
-                            <label>메뉴명</label>
-                            <input
-                                type="text"
-                                className={common.inpt}
-                            />
-                        </div>
-                        <div className={common.inptWrap}>
-                            <label>메뉴 설명</label>
-                            <textarea
-                                className={common.inpt}
-                            />
-                        </div>
-                        <div className={common.inptWrap}>
-                            <label>메뉴 가격</label>
-                            <input
-                                type="number"
-                                className={common.inpt}
-                            />
-                        </div>
+                        <Input
+                            name={"메뉴명"}
+                            type={"text"}
+                        />
+                        <Textarea
+                            name={"메뉴설명"}
+                        />
+                        <Input
+                            name={"메뉴가격"}
+                            type={"number"}
+                        />
                         <div className={common.inptWrap}>
                             {/*옵션*/}
                             <label>메뉴 옵션<span className={common.num}>1</span></label>

@@ -393,8 +393,11 @@
   display: flex;
   flex-wrap: wrap;
 }
-.container .content .ordFormWrap .ordForm:has(.prc) .inptWrap {
+.container .content .ordFormWrap .ordForm.prc .inptWrap {
   margin-bottom: 0;
+}
+.container .content .ordFormWrap .ordForm.prc .inptWrap:nth-child(2) .inpt, .container .content .ordFormWrap .ordForm.prc .inptWrap:nth-child(3) .inpt {
+  text-align: right;
 }
 .container .content .ordFormWrap .ordForm .inptWrap {
   width: calc((100% - 20px) / 3);
@@ -402,9 +405,6 @@
 }
 .container .content .ordFormWrap .ordForm .inptWrap:last-child {
   margin-right: 0;
-}
-.container .content .ordFormWrap .ordForm .inptWrap.prc .inpt {
-  text-align: right;
 }
 .container .content .ordFormWrap .ordTableWrap {
   margin-top: 0;

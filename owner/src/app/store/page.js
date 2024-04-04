@@ -8,23 +8,27 @@ import Textarea from "@/app/component/Textarea";
 import { useEffect, useState } from 'react';
 
 export default function store() {
+    // state
     const [data, setData] = useState();
 
+    // function
     const getdata = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/owners/stores/27");
+            const response = await axios.get("http://192.168.80.39:3001/owners/stores/24");
             setData(response.data[0]);
         } catch (error) {
             alert('조회 에러');
         }
     }
 
+    // useEffect
     useEffect(() => {
         getdata();
       }, []);
 
     return (
         <>
+            {console.log(data)}
             <div>
                 <div className={common.pageTitleWrap}>
                     <h2>가게 정보</h2>
@@ -37,7 +41,11 @@ export default function store() {
                             <Image src={''} alt={'가게 사진'} />
                         </div>
                         <div className={common.storeInptWrap}>
-                            <Input name={"업종"} type={"text"} />
+                            <Input
+                                name={"업종"}
+                                type={"text"}
+                                value={data ? (data.CTGRY) : ""}
+                            />
                             <div className={common.inptWrap}>
                                 <label>위치</label>
                                 <input

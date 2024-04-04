@@ -1,6 +1,5 @@
 import common from "@/resources/common.module.css";
 import Image from "next/image";
-import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
 
 export default function ordDtl() {
@@ -16,74 +15,57 @@ export default function ordDtl() {
                         <div className={common.ordFormWrap}>
                             <h4 className={common.subTitle}>주문 정보</h4>
                             <div className={common.ordForm}>
-                                <Input name={"주문번호"} value={"!"} readOnly />
-                                <div className={common.inptWrap}>
-                                    <label>주문자명</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"박미람"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={common.inptWrap}>
-                                    <label>주문 일시</label>
-                                    <input
-                                        type="datetime-local"
-                                        className={common.inpt}
-                                        value={"2024-04-03 17:48:33"}
-                                        readOnly
-                                    />
-                                </div>
+                                <Input
+                                    name={"주문번호"}
+                                    type={"number"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"주문자명"}
+                                    type={"text"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"주문일시"}
+                                    type={"datetime-local"}
+                                    value={""}
+                                    readOnly
+                                />
                             </div>
                             <h4 className={common.subTitle}>수취인 정보</h4>
                             <div className={common.ordForm}>
-                                <div className={common.inptWrap}>
-                                    <label>수취인명</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"박미람"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={common.inptWrap}>
-                                    <label>수취인 전화번호</label>
-                                    <input
-                                        type="number"
-                                        className={common.inpt}
-                                        value={"01011112222"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={common.inptWrap}>
-                                    <label>수취인 우편번호</label>
-                                    <input
-                                        type="number"
-                                        className={common.inpt}
-                                        value={"19283"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={common.inptWrap}>
-                                    <label>수취인 기본주소</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"서울시 중랑구 상봉"}
-                                        readOnly
-                                        title={"서울시 중랑구 상봉"}
-                                    />
-                                </div>
-                                <div className={common.inptWrap}>
-                                    <label>수취인 상세주소</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"101호"}
-                                        readOnly
-                                    />
-                                </div>
+                                <Input
+                                    name={"수취인명"}
+                                    type={"text"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"수취인 전화번호"}
+                                    type={"number"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"우편번호"}
+                                    type={"number"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"기본주소"}
+                                    type={"text"}
+                                    value={""}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"상세주소"}
+                                    type={"text"}
+                                    value={""}
+                                    readOnly
+                                />
                             </div>
                             <h4 className={common.subTitle}>주문 상품</h4>
                             <div className={common.ordTableWrap}>
@@ -145,37 +127,25 @@ export default function ordDtl() {
                                     </li>
                                 </ul>
                             </div>
-                            <div className={common.ordForm}>
-                                <div className={common.inptWrap}>
-                                    <label>전체 주문 수량</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"3"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={[common.inptWrap, common.prc].join(' ')}>
-                                    <label>전체 주문 판매가</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"20,000"}
-                                        readOnly
-                                    />
-                                </div>
-                                <div className={[common.inptWrap, common.prc].join(' ')}>
-                                    <label>배송비</label>
-                                    <input
-                                        type="text"
-                                        className={common.inpt}
-                                        value={"2,500"}
-                                        readOnly
-                                    />
-                                </div>
-                            </div>
-                            <div>
-
+                            <div className={[common.ordForm, common.prc].join(' ')}>
+                                <Input
+                                    name={"전체 주문 수량"}
+                                    type={"text"}
+                                    value={"24234"}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"전체 주문 판매가"}
+                                    type={"text"}
+                                    value={"24234"}
+                                    readOnly
+                                />
+                                <Input
+                                    name={"배송비"}
+                                    type={"text"}
+                                    value={"24234"}
+                                    readOnly
+                                />
                             </div>
                         </div>
                         <button className={common.ordBtn}>주문 접수</button>
