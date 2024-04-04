@@ -6,7 +6,7 @@ export default function ordDtl() {
         <>
             <div>
                 <div className={common.popupContainer}>
-                    <div className={common.popupContent} style={{ width: '60%'}}>
+                    <div className={common.popupContent} style={{ width: '80%'}}>
                         <div className={common.popupTitle}>
                             <h3>주문 상세</h3>
                             <button className={common.close}>×</button>
@@ -78,6 +78,7 @@ export default function ordDtl() {
                                         className={common.inpt}
                                         value={"서울시 중랑구 상봉"}
                                         readOnly
+                                        title={"서울시 중랑구 상봉"}
                                     />
                                 </div>
                                 <div className={common.inptWrap}>
@@ -102,7 +103,7 @@ export default function ordDtl() {
                                 <ul className={common.ordTable}>
                                     <li className={common.ordList}>
                                         {/*상품명*/}
-                                        <p>평양 물냉면</p>
+                                        <p title={"평양 물냉면"}>평양 물냉면</p>
                                         {/*상품 가격*/}
                                         <p>18,000</p>
                                         {/*옵션명*/}
@@ -114,7 +115,7 @@ export default function ordDtl() {
                                     </li>
                                     <li className={common.ordList}>
                                         {/*상품명*/}
-                                        <p>평양 물냉면</p>
+                                        <p title={"평양 물냉면"}>평양 물냉면</p>
                                         {/*상품 가격*/}
                                         <p>18,000</p>
                                         {/*옵션명*/}
@@ -122,11 +123,68 @@ export default function ordDtl() {
                                         {/*옵션 가격*/}
                                         <p>1,000</p>
                                         {/*수량*/}
-                                        <p>2</p>
+                                        <p>1</p>
+                                    </li>
+                                    <li className={common.ordList}>
+                                        {/*상품명*/}
+                                        <p title={"평양 물냉면"}>평양 물냉면</p>
+                                        {/*상품 가격*/}
+                                        <p>18,000</p>
+                                        {/*옵션명*/}
+                                        <p>사리 추가</p>
+                                        {/*옵션 가격*/}
+                                        <p>1,000</p>
+                                        {/*수량*/}
+                                        <p>1</p>
+                                    </li>
+                                    <li className={common.ordList}>
+                                        {/*상품명*/}
+                                        <p title={"평양 물냉면"}>평양 물냉면</p>
+                                        {/*상품 가격*/}
+                                        <p>18,000</p>
+                                        {/*옵션명*/}
+                                        <p>사리 추가</p>
+                                        {/*옵션 가격*/}
+                                        <p>1,000</p>
+                                        {/*수량*/}
+                                        <p>1</p>
                                     </li>
                                 </ul>
                             </div>
+                            <div className={common.ordForm}>
+                                <div className={common.inptWrap}>
+                                    <label>전체 주문 수량</label>
+                                    <input
+                                        type="text"
+                                        className={common.inpt}
+                                        value={"3"}
+                                        readOnly
+                                    />
+                                </div>
+                                <div className={[common.inptWrap, common.prc].join(' ')}>
+                                    <label>전체 주문 판매가</label>
+                                    <input
+                                        type="text"
+                                        className={common.inpt}
+                                        value={"20,000"}
+                                        readOnly
+                                    />
+                                </div>
+                                <div className={[common.inptWrap, common.prc].join(' ')}>
+                                    <label>배송비</label>
+                                    <input
+                                        type="text"
+                                        className={common.inpt}
+                                        value={"2,500"}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
                         </div>
+                        <button className={common.ordBtn}>주문 접수</button>
                     </div>
                 </div>
             </div>

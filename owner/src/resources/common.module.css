@@ -228,7 +228,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
   height: calc(100% - 37px - 152px);
   overflow: auto;
 }
@@ -383,67 +382,19 @@
 .container .content .ordTableWrap .ordTable .ordList p:nth-child(3), .container .content .ordTableWrap .ordTable .ordList p:nth-child(4), .container .content .ordTableWrap .ordTable .ordList p:nth-child(5) {
   text-align: center;
 }
-.container .content .srchOrdListWrap {
-  width: 100%;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-}
-.container .content .srchOrdListWrap .srchOrdList {
-  width: calc(100% - 60px);
-  display: flex;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch {
-  width: 50%;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap label {
-  display: flex;
-  align-items: center;
-  width: 70px;
-  margin-bottom: 0;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate {
-  display: flex;
-  width: calc(100% - 70px);
-}
-.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate .inpt {
-  width: calc(50% - 10px);
-  margin-bottom: 0;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch .inptWrap .srchDate span {
-  width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch:last-child {
-  margin-left: 50px;
-}
-.container .content .srchOrdListWrap .srchOrdList .srch:last-child .inpt {
-  width: calc(100% - 70px);
-}
-.container .content .srchOrdListWrap .inq {
-  width: 50px;
-  margin-left: 10px;
-  background-color: #f88a1c;
-  color: #FFFFFF;
-  border-radius: 8px;
-}
 .container .content .ordFormWrap {
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 27px);
+  height: calc(100% - 36px - 50px);
+  overflow: auto;
 }
 .container .content .ordFormWrap .ordForm {
   display: flex;
   flex-wrap: wrap;
+}
+.container .content .ordFormWrap .ordForm:has(.prc) .inptWrap {
+  margin-bottom: 0;
 }
 .container .content .ordFormWrap .ordForm .inptWrap {
   width: calc((100% - 20px) / 3);
@@ -452,21 +403,33 @@
 .container .content .ordFormWrap .ordForm .inptWrap:last-child {
   margin-right: 0;
 }
+.container .content .ordFormWrap .ordForm .inptWrap.prc .inpt {
+  text-align: right;
+}
 .container .content .ordFormWrap .ordTableWrap {
   margin-top: 0;
-  flex: 1;
   height: auto;
+  margin-bottom: 10px;
 }
 .container .content .ordFormWrap .ordTableWrap .ordTable {
-  height: calc(100% - 27.5px - 5px);
-  max-height: calc(100% - 27.5px - 5px);
+  max-height: 100px;
+  height: auto;
+  overflow: auto;
 }
 .container .content .ordFormWrap .ordTableWrap .ordList {
   border-bottom: 2px solid #F2F4F5;
   margin-bottom: 0;
+  cursor: auto;
+  background-color: #FFFFFF;
 }
 .container .content .ordFormWrap .ordTableWrap .ordList:first-child {
   border-top: 2px solid #F2F4F5;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(2), .container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(4) {
+  text-align: right;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(3) {
+  text-align: left;
 }
 .container .content .ordFormWrap .ordTableWrap .ordTableHead p,
 .container .content .ordFormWrap .ordTableWrap .ordList p {
@@ -479,6 +442,15 @@
 .container .content .ordFormWrap .ordTableWrap .ordTableHead p:nth-child(3),
 .container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(3) {
   width: 25% !important;
+}
+.container .content .ordBtn {
+  width: 80px;
+  height: 30px;
+  background-color: #f88a1c;
+  border-radius: 10px;
+  margin-top: 20px;
+  float: right;
+  color: #FFFFFF;
 }
 .container .content .popupContainer {
   position: absolute;
@@ -505,10 +477,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .container .content .popupContainer .popupContent .popupTitle .close {
   font-size: 1.4rem;
   color: #778088;
+}
+.container .content .popupContainer .popupContent .subTitle {
+  margin-top: 0;
 }
 .container .content .inptWrap {
   margin-bottom: 10px;
@@ -531,6 +507,58 @@
 }
 .container .content .inptWrap .inpt:last-child {
   margin-bottom: 0;
+}
+.container .content .srchListWrap {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+}
+.container .content .srchListWrap .srchList {
+  width: calc(100% - 60px);
+  display: flex;
+}
+.container .content .srchListWrap .srchList .srch {
+  width: 50%;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap label {
+  display: flex;
+  align-items: center;
+  width: 70px;
+  margin-bottom: 0;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate {
+  display: flex;
+  width: calc(100% - 70px);
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate .inpt {
+  width: calc(50% - 10px);
+  margin-bottom: 0;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate span {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .content .srchListWrap .srchList .srch:nth-child(2) {
+  margin-left: 50px;
+}
+.container .content .srchListWrap .srchList .srch:nth-child(2) .inpt {
+  width: calc(100% - 70px);
+}
+.container .content .srchListWrap .inq {
+  width: 50px;
+  margin-left: 10px;
+  background-color: #f88a1c;
+  color: #FFFFFF;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=common.module.css.map */
