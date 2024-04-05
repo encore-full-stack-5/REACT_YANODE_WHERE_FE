@@ -24,6 +24,7 @@ export default function menu() {
       alert("조회 에러");
     }
   };
+
   // 메뉴 상태
   const menuState = (el) => {
     if (el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1") return "판매";
@@ -52,7 +53,9 @@ export default function menu() {
       <div>
         <div className={common.pageTitleWrap}>
           <h2>메뉴 등록</h2>
-          <button className={common.pageBtn} onClick={clickModal}>추가</button>
+          <button className={common.pageBtn} onClick={clickModal}>
+            추가
+          </button>
         </div>
         {/* 필터 */}
         <div className={common.menuFilter}>

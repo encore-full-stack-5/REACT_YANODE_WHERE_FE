@@ -1,4 +1,5 @@
 import common from "@/resources/common.module.css";
+import axios from "axios";
 import Image from "next/image";
 import Input from "@/app/component/Input";
 import Textarea from "@/app/component/Textarea";
@@ -14,6 +15,42 @@ export default function menuDtl(props) {
   // state
   const [status, setStatus] = useState("");
   const [option, setOption] = useState([]);
+
+  const postdata = async (req, res) => {
+    let soldOut = 0;
+    let exposure = 0;
+    console.log(menuDtl.GDS_ID);
+    console.log(document.getElementById("menuName").value);
+    console.log(document.getElementById("menuDescision").value);
+    console.log(document.getElementById("menuPrice").value);
+    console.log(status);
+    if (status === "2") {
+      soldOut = 1;
+      exposure = 0;
+    } else if (status === "3") {
+      soldOut = 0;
+      exposure = 1;
+    }
+    try {
+      const response = await axios.put(
+        "http://192.168.80.39:3001/owners/products",
+        {
+          data: [
+            menuDtl.GDS_ID,
+            document.getElementById("menuName").value,
+            document.getElementById("menuDescision").value,
+            document.getElementById("menuPrice").value,
+            soldOut,
+            exposure,
+          ],
+        }
+      );
+      console.log(response.data);
+      res.status(200).json(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const addOption = () => {
     const newOption = { ...obj };
@@ -54,7 +91,7 @@ export default function menuDtl(props) {
       <div className={common.popupContainer}>
         <div className={common.popupContent} style={{ width: "300px" }}>
           <div className={common.popupTitle}>
-            <h3>메뉴 수정/등록</h3>
+            <h3>메뉴 {menuDtl.GDS_ID !== undefined ? "수정" : "등록"}</h3>
             <button className={common.close} onClick={clickModal}>
               ×
             </button>
@@ -67,12 +104,18 @@ export default function menuDtl(props) {
               </div>
             </div>
             <Input
+              id={"menuName"}
               name={"메뉴명"}
               type={"text"}
               defaultValue={menuDtl.GDS_NM}
             />
-            <Textarea name={"메뉴설명"} defaultValue={menuDtl.GDS_DESC} />
+            <Textarea
+              id={"menuDescision"}
+              name={"메뉴설명"}
+              defaultValue={menuDtl.GDS_DESC}
+            />
             <Input
+              id={"menuPrice"}
               name={"메뉴가격"}
               type={"number"}
               defaultValue={menuDtl.GDS_PRC}
@@ -127,7 +170,9 @@ export default function menuDtl(props) {
               </div>
               <button className={common.del}>삭제</button>
             </div>
-            <button className={common.sav}>저장</button>
+            <button className={common.sav} onClick={() => postdata()}>
+              저장
+            </button>
           </div>
         </div>
       </div>
