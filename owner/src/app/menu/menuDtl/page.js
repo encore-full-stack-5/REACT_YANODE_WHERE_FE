@@ -19,11 +19,7 @@ export default function menuDtl(props) {
   const postdata = async (req, res) => {
     let soldOut = 0;
     let exposure = 0;
-    console.log(menuDtl.GDS_ID);
-    console.log(document.getElementById("menuName").value);
-    console.log(document.getElementById("menuDescision").value);
-    console.log(document.getElementById("menuPrice").value);
-    console.log(status);
+
     if (status === "2") {
       soldOut = 1;
       exposure = 0;
