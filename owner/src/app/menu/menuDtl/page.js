@@ -18,14 +18,14 @@ export default function menuDtl(props) {
 
   const postdata = async (req, res) => {
     let soldOut = 0;
-    let exposure = 0;
+    let exposure = 1;
 
     if (status === "2") {
       soldOut = 1;
-      exposure = 0;
+      exposure = 1;
     } else if (status === "3") {
       soldOut = 0;
-      exposure = 1;
+      exposure = 0;
     }
     try {
       const response = await axios.put(
