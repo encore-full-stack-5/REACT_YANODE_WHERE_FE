@@ -1,9 +1,46 @@
+"use client"
+
 import common from "@/resources/common.module.css";
-import Image from "next/image";
 import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function ordDtl() {
+
+export default function ordDtl(props) {
+    const { clickOrd } = props;
+    const { ord_id } = props;
+    const [data, setData] = useState([]);
+    const [dataOpt, setDataOpt] = useState([]);
+
+    const getdata = async () => {
+        try {
+            const response = await axios.get(
+                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details"
+            );
+            setData(response.data[0]);
+        } catch (error) {
+        alert("조회 에러");
+        }
+    };
+
+    const getOptionData = async () => {
+        try {
+            const response = await axios.get(
+                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details/options"
+            );
+            console.log(response.data);
+            setDataOpt(response.data);
+        } catch (error) {
+        alert("조회 에러");
+        }
+    };
+
+    useEffect(() => {
+        getdata();
+        getOptionData();
+    }, []);
+
     return (
         <>
             <div>
@@ -11,18 +48,20 @@ export default function ordDtl() {
                     <div className={common.popupContent} style={{ width: '80%'}}>
                         <div className={common.popupTitle}>
                             <h3>주문 상세</h3>
-                            <button className={common.close}>×</button>
+                            <button className={common.close} onClick={clickOrd}>
+                                ×
+                            </button>
                         </div>
                         <div className={common.ordFormWrap}>
                             <h4 className={common.subTitle}>주문 정보</h4>
                             <div className={common.ordForm}>
-                                <Input name={"주문번호"} value={"!"} readOnly />
+                                <Input name={"주문번호"} value={ord_id} readOnly />
                                 <div className={common.inptWrap}>
                                     <label>가게이름</label>
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"미리암 식당"}
+                                        defaultValue={data?(data.SHOP_NM):""}
                                         readOnly
                                     />
                                 </div>
@@ -31,7 +70,7 @@ export default function ordDtl() {
                                     <input
                                         type="datetime-local"
                                         className={common.inpt}
-                                        value={"2024-04-03 17:48:33"}
+                                        defaultValue={data?(data.ORD_DT?.substr(0,16)):""}
                                         readOnly
                                     />
                                 </div>
@@ -43,7 +82,7 @@ export default function ordDtl() {
                                     <input
                                         type="number"
                                         className={common.inpt}
-                                        value={"19283"}
+                                        defaultValue={data?(data.RVR_ZIPN):""}
                                         readOnly
                                     />
                                 </div>
@@ -52,9 +91,8 @@ export default function ordDtl() {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"서울시 중랑구 상봉"}
+                                        defaultValue={data?(data.RCVR_BSC_ADDR):""}
                                         readOnly
-                                        title={"서울시 중랑구 상봉"}
                                     />
                                 </div>
                                 <div className={common.inptWrap}>
@@ -62,7 +100,7 @@ export default function ordDtl() {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"101호"}
+                                        defaultValue={data?(data.RCVR_DTL_ADDR):""}
                                         readOnly
                                     />
                                 </div>
@@ -77,54 +115,23 @@ export default function ordDtl() {
                                     <p>수량</p>
                                 </div>
                                 <ul className={common.ordTable}>
-                                    <li className={common.ordList}>
-                                        {/*상품명*/}
-                                        <p title={"평양 물냉면"}>평양 물냉면</p>
-                                        {/*상품 가격*/}
-                                        <p>18,000</p>
-                                        {/*옵션명*/}
-                                        <p>사리 추가</p>
-                                        {/*옵션 가격*/}
-                                        <p>1,000</p>
-                                        {/*수량*/}
-                                        <p>1</p>
-                                    </li>
-                                    <li className={common.ordList}>
-                                        {/*상품명*/}
-                                        <p title={"평양 물냉면"}>평양 물냉면</p>
-                                        {/*상품 가격*/}
-                                        <p>18,000</p>
-                                        {/*옵션명*/}
-                                        <p>사리 추가</p>
-                                        {/*옵션 가격*/}
-                                        <p>1,000</p>
-                                        {/*수량*/}
-                                        <p>1</p>
-                                    </li>
-                                    <li className={common.ordList}>
-                                        {/*상품명*/}
-                                        <p title={"평양 물냉면"}>평양 물냉면</p>
-                                        {/*상품 가격*/}
-                                        <p>18,000</p>
-                                        {/*옵션명*/}
-                                        <p>사리 추가</p>
-                                        {/*옵션 가격*/}
-                                        <p>1,000</p>
-                                        {/*수량*/}
-                                        <p>1</p>
-                                    </li>
-                                    <li className={common.ordList}>
-                                        {/*상품명*/}
-                                        <p title={"평양 물냉면"}>평양 물냉면</p>
-                                        {/*상품 가격*/}
-                                        <p>18,000</p>
-                                        {/*옵션명*/}
-                                        <p>사리 추가</p>
-                                        {/*옵션 가격*/}
-                                        <p>1,000</p>
-                                        {/*수량*/}
-                                        <p>1</p>
-                                    </li>
+                                    {dataOpt?(dataOpt.map((e,i)=>
+                                        <li 
+                                            key={i}
+                                            className={common.ordList}
+                                        >
+                                            {/*상품명*/}
+                                            <p>{e.GDS_NM}</p>
+                                            {/*상품 가격*/}
+                                            <p>{e.GDS_PRC}</p>
+                                            {/*옵션명*/}
+                                            <p>{e.OPTION_NM}</p>
+                                            {/*옵션 가격*/}
+                                            <p>{e.OPTION_PRC}</p>
+                                            {/*수량*/}
+                                            <p>{e.ORD_QTY}</p>
+                                        </li>
+                                    )):""}
                                 </ul>
                             </div>
                             <div className={common.ordForm}>
@@ -133,7 +140,7 @@ export default function ordDtl() {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"3"}
+                                        defaultValue={data?(data.ORD_QTY):""}
                                         readOnly
                                     />
                                 </div>
@@ -142,7 +149,7 @@ export default function ordDtl() {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"20,000"}
+                                        defaultValue={data?(data.ORD_TPRC):""}
                                         readOnly
                                     />
                                 </div>
@@ -151,7 +158,7 @@ export default function ordDtl() {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        value={"2,500"}
+                                        defaultValue={data?(data.DLV_PRC):""}
                                         readOnly
                                     />
                                 </div>
