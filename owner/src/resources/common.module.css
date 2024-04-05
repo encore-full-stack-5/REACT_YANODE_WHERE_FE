@@ -241,6 +241,15 @@
 .container .content .menuForm .inptWrap:nth-child(2) {
   flex: 1;
 }
+.container .content .menuForm .inptWrap .deleteOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.container .content .menuForm .inptWrap .deleteOption button {
+  margin-right: 10px;
+  color: #ff6060;
+}
 .container .content .menuForm .inptWrap label {
   display: flex;
   align-items: center;
