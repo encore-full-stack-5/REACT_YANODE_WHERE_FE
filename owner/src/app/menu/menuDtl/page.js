@@ -1,12 +1,30 @@
 import common from "@/resources/common.module.css";
 import Image from "next/image";
-import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
 import Textarea from "@/app/component/Textarea";
+import {useEffect, useState} from "react";
 
 export default function menuDtl(props) {
   // props
   const { clickModal, menuDtl } = props;
+
+  // state
+  const [status, setStatus] = useState("");
+
+  //function
+  const menuStatus = () => {
+    if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "1") setStatus("1");
+    if (menuDtl.SOLDOUT_YN === "1") setStatus("2");
+    if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "0") setStatus("3");
+  }
+  const chageStatusSelect = () => {
+    const status = document.getElementById("status");
+    return setStatus(status.value);
+  }
+
+  useEffect(() => {
+    menuStatus();
+  }, []);
 
   return (
     <>
@@ -49,7 +67,7 @@ export default function menuDtl(props) {
             <div className={common.setSelect}>
               <div className={common.inptWrap}>
                 <label>메뉴 상태</label>
-                <select>
+                <select id={"status"} value={status} onChange={() => chageStatusSelect()}>
                   <option value="1">판매</option>
                   <option value="2">품절</option>
                   <option value="3">숨김</option>
