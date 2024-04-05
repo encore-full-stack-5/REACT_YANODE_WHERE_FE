@@ -2,7 +2,7 @@ import common from "@/resources/common.module.css";
 import Image from "next/image";
 import Input from "@/app/component/Input";
 import Textarea from "@/app/component/Textarea";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function menuDtl(props) {
   // props
@@ -10,17 +10,22 @@ export default function menuDtl(props) {
 
   // state
   const [status, setStatus] = useState("");
+  const [option, setOption] = useState([]);
 
+  const addOption = () => {
+    const newOption = "";
+    setOption([newOption, ...option]);
+  };
   //function
   const menuStatus = () => {
     if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "1") setStatus("1");
     if (menuDtl.SOLDOUT_YN === "1") setStatus("2");
     if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "0") setStatus("3");
-  }
+  };
   const chageStatusSelect = () => {
     const status = document.getElementById("status");
     return setStatus(status.value);
-  }
+  };
 
   useEffect(() => {
     menuStatus();
@@ -43,22 +48,37 @@ export default function menuDtl(props) {
                 <Image src={""} alt={"사진 추가"} />
               </div>
             </div>
-            <Input name={"메뉴명"} type={"text"} defaultValue={menuDtl.GDS_NM}/>
-            <Textarea name={"메뉴설명"} defaultValue={menuDtl.GDS_DESC}/>
-            <Input name={"메뉴가격"} type={"number"} defaultValue={menuDtl.GDS_PRC}/>
+            <Input
+              name={"메뉴명"}
+              type={"text"}
+              defaultValue={menuDtl.GDS_NM}
+            />
+            <Textarea name={"메뉴설명"} defaultValue={menuDtl.GDS_DESC} />
+            <Input
+              name={"메뉴가격"}
+              type={"number"}
+              defaultValue={menuDtl.GDS_PRC}
+            />
             <div className={common.inptWrap}>
-              {/*옵션*/}
-              <label>
-                메뉴 옵션<span className={common.num}>1</span>
-              </label>
-              <input type="text" className={common.inpt} placeholder="옵션명" />
-              <input
-                type="number"
-                className={common.inpt}
-                placeholder="옵션 가격"
-              />
+              {option.map((el, index) => (
+                <>
+                  <label>
+                    메뉴 옵션<span className={common.num}>{index + 1}</span>
+                  </label>
+                  <input
+                    type="text"
+                    className={common.inpt}
+                    placeholder="옵션명"
+                  />
+                  <input
+                    type="number"
+                    className={common.inpt}
+                    placeholder="옵션 가격"
+                  />
+                </>
+              ))}
               {/*여기까지*/}
-              <button className={common.optnAdd}>
+              <button className={common.optnAdd} onClick={() => addOption()}>
                 <p>+</p>
               </button>
             </div>
@@ -67,7 +87,11 @@ export default function menuDtl(props) {
             <div className={common.setSelect}>
               <div className={common.inptWrap}>
                 <label>메뉴 상태</label>
-                <select id={"status"} value={status} onChange={() => chageStatusSelect()}>
+                <select
+                  id={"status"}
+                  value={status}
+                  onChange={() => chageStatusSelect()}
+                >
                   <option value="1">판매</option>
                   <option value="2">품절</option>
                   <option value="3">숨김</option>
