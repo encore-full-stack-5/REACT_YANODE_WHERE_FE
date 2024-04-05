@@ -1,0 +1,690 @@
+@charset "UTF-8";
+/* root */
+.container {
+  display: flex;
+}
+.container .content {
+  background-color: #F2F4F5;
+  width: calc(100% - 300px);
+  height: 100%;
+  float: right;
+  padding: 20px;
+}
+.container .content .pageTitleWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.container .content .pageTitleWrap span {
+  margin-left: 10px;
+  color: #f88a1c;
+}
+.container .content .pageTitleWrap .pageBtn {
+  border: 0;
+  background-color: #f88a1c;
+  height: 28px;
+  width: 80px;
+  border-radius: 14px;
+  color: #FFFFFF;
+}
+.container .content .subTitle {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.container .content .storeContent {
+  width: 100%;
+  height: calc(100dvh - 48px - 40px);
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E6E8EB;
+}
+.container .content .storeContent .storeLayout {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.container .content .storeContent .storeLayout:first-child .storeInptWrap {
+  width: calc(100% - 270px);
+}
+.container .content .storeContent .storeLayout:nth-child(2) {
+  flex: 1;
+}
+.container .content .storeContent .storeLayout:nth-child(2) .storeInptWrap {
+  height: 100%;
+}
+.container .content .storeContent .storeLayout:nth-child(2) .storeInptWrap .inptWrap {
+  height: 100%;
+}
+.container .content .storeContent .storeLayout:nth-child(2) .storeInptWrap .inptWrap textarea {
+  height: 100%;
+}
+.container .content .storeContent .storeLayout:last-child {
+  margin-bottom: 0;
+}
+.container .content .storeContent .storeLayout .storeImg {
+  width: 250px;
+  height: 250px;
+  margin-right: 20px;
+  border-radius: 14px;
+  border: 2px solid #E6E8EB;
+}
+.container .content .storeContent .storeLayout .storeImg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+.container .content .storeContent .storeLayout .storeInptWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap .setTime {
+  width: calc(50% - 5px);
+  display: flex;
+}
+.container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap .setTime .inptWrap {
+  width: calc(50% - 10px);
+  margin-bottom: 0;
+}
+.container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap .setTime span {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap .setTime + .inptWrap {
+  width: calc(50% - 5px);
+}
+.container .content .menuFilter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  background-color: #E6E8EB;
+  border-radius: 12px;
+}
+.container .content .menuFilter button {
+  width: 33.3333333333%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  border-radius: 9px;
+}
+.container .content .menuFilter button:last-child {
+  margin-right: 0;
+}
+.container .content .menuFilter button:hover {
+  background-color: #F2F4F5;
+}
+.container .content .menuFilter .on {
+  background-color: #FFFFFF !important;
+}
+.container .content .menuList {
+  width: 100%;
+  height: calc(100dvh - 48px - 40px - 80px);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  margin-top: 3.5%;
+}
+.container .content .menuList .menu {
+  width: calc((100% - 60px) / 4);
+  height: 275px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 1px solid #E6E8EB;
+  padding: 10px;
+  cursor: pointer;
+}
+.container .content .menuList .menu:nth-child(4n) {
+  margin-right: 0;
+}
+.container .content .menuList .menu:nth-child(-n+4) {
+  margin-top: 0;
+}
+.container .content .menuList .menu .menuImg {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  background-color: #E6E8EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ADB4BA;
+  margin-bottom: 10px;
+}
+.container .content .menuList .menu .menuNm {
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.container .content .menuList .menu .menuDesc {
+  height: 30px;
+  font-size: 0.8rem;
+  color: #262C31;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.container .content .menuList .menu .menuOpt {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.container .content .menuList .menu .menuOpt p {
+  color: #ADB4BA;
+  font-size: 0.8rem;
+}
+.container .content .menuList .menu .menuOpt p:nth-child(2)::after {
+  content: "개";
+}
+.container .content .menuList .menu .menuPrc {
+  width: 100%;
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.container .content .menuList .menu .menuPrc::after {
+  content: "원";
+  font-weight: 400;
+  margin-left: 2px;
+}
+.container .content .menuList .menu .menuYn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.container .content .menuList .menu .menuYn p {
+  font-size: 0.8rem;
+}
+.container .content .menuList .menu .menuYn p:last-child {
+  padding-left: 5px;
+}
+.container .content .menuForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 37px - 152px);
+  overflow: auto;
+}
+.container .content .menuForm .menuImgReg {
+  width: 100%;
+  height: 260px;
+  border: 2px solid #E6E8EB;
+  border-radius: 14px;
+}
+.container .content .menuForm .inptWrap:nth-child(2) {
+  flex: 1;
+}
+.container .content .menuForm .inptWrap label {
+  display: flex;
+  align-items: center;
+}
+.container .content .menuForm .inptWrap label .num {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: #E6E8EB;
+}
+.container .content .menuForm .inptWrap textarea {
+  min-height: 100px;
+}
+.container .content .menuForm .optnAdd {
+  width: 100%;
+  height: 40px;
+  border-radius: 14px;
+  background-color: #E6E8EB;
+  font-size: 1.8rem;
+  color: #778088;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.container .content .menuForm .optnAdd:hover {
+  background-color: #CCD1D7;
+  transition: all 0.2s;
+}
+.container .content .menuForm .optnAdd p {
+  height: 100%;
+}
+.container .content .menuSet {
+  margin-top: 20px;
+}
+.container .content .menuSet .setSelect {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: #F2F4F5;
+  padding: 10px;
+  border-radius: 12px;
+}
+.container .content .menuSet .setSelect .inptWrap {
+  width: calc(100% - 50px - 10px);
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+.container .content .menuSet .setSelect .del {
+  width: 50px;
+  height: 40px;
+  background-color: rgba(255, 96, 96, 0.2);
+  color: #ff6060;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+.container .content .menuSet .sav {
+  width: 100%;
+  height: 30px;
+  background-color: #f88a1c;
+  border-radius: 12px;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+.container .content .ordTableWrap {
+  width: 100%;
+}
+.container .content .ordTableWrap:last-child {
+  margin-top: 20px;
+}
+.container .content .ordTableWrap:last-child .ordTable {
+  height: calc(100vh - 460.8px);
+}
+.container .content .ordTableWrap .ordTableHead p,
+.container .content .ordTableWrap .ordTable .ordList p {
+  width: 14.2857142857%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 0.9rem;
+  border-right: 2px solid #F2F4F5;
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(2),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(2) {
+  width: 42.8571428571%;
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(4),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(4) {
+  width: 28.5714285714%;
+}
+.container .content .ordTableWrap .ordTableHead p:last-child,
+.container .content .ordTableWrap .ordTable .ordList p:last-child {
+  border-right: 0;
+}
+.container .content .ordTableWrap .ordTableHead {
+  width: 100%;
+  background-color: #E6E8EB;
+  display: flex;
+  border-radius: 8px;
+}
+.container .content .ordTableWrap .ordTableHead p {
+  color: #778088;
+  text-align: center;
+}
+.container .content .ordTableWrap .ordTable {
+  width: 100%;
+  height: 170px;
+  overflow: auto;
+  margin-top: 5px;
+}
+.container .content .ordTableWrap .ordTable .ordList {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 5px;
+}
+.container .content .ordTableWrap .ordTable .ordList:hover {
+  background-color: #FFFFFF;
+  transition: all 0.2s;
+}
+.container .content .ordTableWrap .ordTable .ordList:last-child {
+  margin-bottom: 0;
+}
+.container .content .ordTableWrap .ordTable .ordList p {
+  padding: 10px 15px;
+}
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(2) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(3), .container .content .ordTableWrap .ordTable .ordList p:nth-child(4), .container .content .ordTableWrap .ordTable .ordList p:nth-child(5) {
+  text-align: center;
+}
+.container .content .ordFormWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 36px - 50px);
+  overflow: auto;
+}
+.container .content .ordFormWrap .ordForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .content .ordFormWrap .ordForm:has(.prc) .inptWrap {
+  margin-bottom: 0;
+}
+.container .content .ordFormWrap .ordForm .inptWrap {
+  width: calc((100% - 20px) / 3);
+  margin-right: 10px;
+}
+.container .content .ordFormWrap .ordForm .inptWrap:last-child {
+  margin-right: 0;
+}
+.container .content .ordFormWrap .ordForm .inptWrap.prc .inpt {
+  text-align: right;
+}
+.container .content .ordFormWrap .ordTableWrap {
+  margin-top: 0;
+  height: auto;
+  margin-bottom: 10px;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTable {
+  max-height: 145px;
+  height: auto;
+  overflow: auto;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList {
+  border-bottom: 2px solid #F2F4F5;
+  margin-bottom: 0;
+  cursor: auto;
+  background-color: #FFFFFF;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList:first-child {
+  border-top: 2px solid #F2F4F5;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(2), .container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(4) {
+  text-align: right;
+}
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(3) {
+  text-align: left;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p,
+.container .content .ordFormWrap .ordTableWrap .ordList p {
+  width: 12.5% !important;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p:nth-child(1),
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(1) {
+  width: 37.5% !important;
+}
+.container .content .ordFormWrap .ordTableWrap .ordTableHead p:nth-child(3),
+.container .content .ordFormWrap .ordTableWrap .ordList p:nth-child(3) {
+  width: 25% !important;
+}
+.container .content .ordBtn {
+  width: 80px;
+  height: 30px;
+  background-color: #f88a1c;
+  border-radius: 10px;
+  margin-top: 20px;
+  float: right;
+  color: #FFFFFF;
+}
+.container .content .saleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container .content .saleContainer .saleSrchContainer .saleSrchWrap {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px);
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p {
+  color: #778088;
+  text-align: center;
+  width: 25%;
+  font-size: 0.9rem;
+  border-right: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p:first-child,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p:first-child {
+  width: 75%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap p:last-child,
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTable p:last-child {
+  border-right: 0;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap {
+  width: 100%;
+  height: 100%;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTableHead {
+  width: 100%;
+  background-color: #E6E8EB;
+  display: flex;
+  border-radius: 8px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTableHead p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable {
+  width: 100%;
+  height: 145px;
+  overflow: auto;
+  margin-top: 5px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList {
+  width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  transition: all 0.2s;
+  border-bottom: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList:first-child {
+  border-top: 2px solid #F2F4F5;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList p {
+  padding: 10px 15px;
+}
+.container .content .saleContainer .saleSrchContainer .historyWrap .saleTableWrap .saleTable .saleList p:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.container .content .saleContainer .historyContainer {
+  width: 100%;
+  margin-top: 20px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory {
+  width: calc((100% - 40px) / 3);
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory .historyWrap {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+}
+.container .content .saleContainer .historyContainer .saleHistoryWrap .saleHistory .historyWrap .history {
+  display: flex;
+  flex-direction: column;
+}
+.container .content .saleContainer .history {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #E6E8EB;
+}
+.container .content .saleContainer .history:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.container .content .saleContainer .history .historyNm {
+  color: #778088;
+  margin-bottom: 5px;
+}
+.container .content .saleContainer .history .historyVal {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.container .content .popupContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+}
+.container .content .popupContainer .popupContent {
+  background-color: #FFFFFF;
+  height: 80%;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+.container .content .popupContainer .popupContent .popupTitle {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.container .content .popupContainer .popupContent .popupTitle .close {
+  font-size: 1.4rem;
+  color: #778088;
+}
+.container .content .popupContainer .popupContent .subTitle {
+  margin-top: 0;
+}
+.container .content .inptWrap {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.container .content .inptWrap:last-child {
+  margin-bottom: 0;
+}
+.container .content .inptWrap label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  color: #778088;
+}
+.container .content .inptWrap .inpt {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.container .content .inptWrap .inpt:last-child {
+  margin-bottom: 0;
+}
+.container .content .srchListWrap {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+}
+.container .content .srchListWrap .srchList {
+  width: calc(100% - 60px);
+  display: flex;
+}
+.container .content .srchListWrap .srchList .srch {
+  width: 50%;
+}
+.container .content .srchListWrap .srchList .srch.full {
+  width: 100%;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap label {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  margin-bottom: 0;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate {
+  display: flex;
+  width: calc(100% - 70px);
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate .inpt {
+  width: calc(50% - 10px);
+  margin-bottom: 0;
+}
+.container .content .srchListWrap .srchList .srch .inptWrap .srchDate span {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .content .srchListWrap .srchList .srch:nth-child(2) {
+  margin-left: 50px;
+}
+.container .content .srchListWrap .srchList .srch:nth-child(2) .inpt {
+  width: calc(100% - 70px);
+}
+.container .content .srchListWrap .inq {
+  width: 50px;
+  margin-left: 10px;
+  background-color: #f88a1c;
+  color: #FFFFFF;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=common.module.css.map */
