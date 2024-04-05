@@ -52,8 +52,8 @@ export default function menuDtl(props) {
   return (
     <>
       <div className={common.popupContainer}>
-        <div className={common.popupContent}>
-          <div className={common.popupTitle} style={{ width: "300px" }}>
+        <div className={common.popupContent} style={{ width: "300px" }}>
+          <div className={common.popupTitle}>
             <h3>메뉴 수정/등록</h3>
             <button className={common.close} onClick={clickModal}>
               ×
@@ -79,7 +79,7 @@ export default function menuDtl(props) {
             />
             <div className={common.inptWrap}>
               {option.map((el, index) => (
-                <div key={"op" + index}>
+                <div key={"op" + index} className={common.optionWrap}>
                   <div className={common.deleteOption}>
                     <label>
                       메뉴 옵션<span className={common.num}>{index + 1}</span>
@@ -106,6 +106,7 @@ export default function menuDtl(props) {
               ))}
               {/*여기까지*/}
               <button className={common.optnAdd} onClick={() => addOption()}>
+                <p>옵션 </p>
                 <p>+</p>
               </button>
             </div>

@@ -13,6 +13,7 @@ export default function menu() {
   const [status, setStatus] = useState("SALE");
 
   // function
+  // 메뉴 조회
   const getdata = async () => {
     try {
       const response = await axios.get(
@@ -23,13 +24,13 @@ export default function menu() {
       alert("조회 에러");
     }
   };
-
+  // 메뉴 상태
   const menuState = (el) => {
     if (el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1") return "판매";
     if (el.SOLDOUT_YN === "1") return "품절";
     if (el.EXPSR_YN === "0") return "숨김";
   };
-
+  // 메뉴 필터
   const menuFilter = (el) => {
     if (status === "SALE") return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1";
     if (status === "SOLDOUT") return el.SOLDOUT_YN === "1";
@@ -51,7 +52,7 @@ export default function menu() {
       <div>
         <div className={common.pageTitleWrap}>
           <h2>메뉴 등록</h2>
-          <button className={common.pageBtn}>추가</button>
+          <button className={common.pageBtn} onClick={clickModal}>추가</button>
         </div>
         {/* 필터 */}
         <div className={common.menuFilter}>
