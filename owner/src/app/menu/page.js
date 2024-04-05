@@ -28,8 +28,8 @@ export default function menu() {
   // 메뉴 상태
   const menuState = (el) => {
     if (el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1") return "판매";
-    if (el.SOLDOUT_YN === "1" && menuDtl.EXPSR_YN === "1") return "품절";
-    if (el.EXPSR_YN === "0" && menuDtl.EXPSR_YN === "0") return "숨김";
+    if (el.SOLDOUT_YN === "1" && el.EXPSR_YN === "1") return "품절";
+    if (el.EXPSR_YN === "0" && el.EXPSR_YN === "0") return "숨김";
   };
   // 메뉴 필터
   const menuFilter = (el) => {
