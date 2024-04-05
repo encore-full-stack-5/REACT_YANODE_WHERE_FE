@@ -16,7 +16,7 @@ export default function menu() {
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.80.39:3001/owners/products/7"
+        "http://192.168.80.39:3001/owners/products/13"
       );
       setData(response.data);
     } catch (error) {

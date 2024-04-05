@@ -15,7 +15,7 @@ export default function store() {
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.80.39:3001/owners/stores/24"
+        "http://192.168.80.39:3001/owners/stores/7"
       );
       setData(response.data[0]);
     } catch (error) {
