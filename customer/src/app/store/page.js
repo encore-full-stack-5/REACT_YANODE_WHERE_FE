@@ -3,14 +3,16 @@
 import common from "@/resources/common.module.css";
 import Input from "@/app/component/Input";
 import { useEffect, useState } from 'react';
+import {useRouter} from "next/navigation";
 import axios from "axios";
 
 export default function menu() {
     const [data, setData] = useState();
+    const router = useRouter();
 
     const getdata = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/users/stores/10");
+            const response = await axios.get("http://localhost:3001/users/stores/all/10");
             setData(response.data);
             console.log(response.data);
         } catch (error) {
@@ -65,7 +67,12 @@ export default function menu() {
                     {data?(data.map((e,i) => 
                         <li
                             key={i}
-                            className={common.menu}>
+                            className={common.menu}
+                            onClick={() => {
+                                router.push(`/store/menu/?shop_id=${e.SHOP_ID}`
+                                )
+                            }}
+                        >
                             <div className={common.menuImg}>
                                 {/*<Image src={} alt={}/>*/}
                                 <span>매장 사진</span>

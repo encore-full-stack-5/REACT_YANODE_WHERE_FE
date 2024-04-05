@@ -10,11 +10,17 @@
   float: right;
   padding: 20px;
 }
+.pageTitleWrap div:nth-child(2) {
+  margin-top: 10px;
+}
+
 .container .content .pageTitleWrap {
   width: 100%;
+  height: 6.5dvh;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 15px;
 }
 .container .content .pageTitleWrap span {
   margin-left: 10px;
@@ -34,7 +40,7 @@
 }
 .container .content .storeContent {
   width: 100%;
-  height: calc(100dvh - 48px - 40px);
+  height: 32dvh;
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 20px;
@@ -47,10 +53,9 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 .container .content .storeContent .storeLayout:first-child .storeInptWrap {
-  width: calc(100% - 270px);
+  width: calc(100% - 220px);
 }
 .container .content .storeContent .storeLayout:nth-child(2) {
   flex: 1;
@@ -64,12 +69,21 @@
 .container .content .storeContent .storeLayout:nth-child(2) .storeInptWrap .inptWrap textarea {
   height: 100%;
 }
+.storeLayout .storeInptWrap .infotime .inptWrap{
+  width: 50%;
+}
+.storeLayout .storeInptWrap .infotime span{
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container .content .storeContent .storeLayout:last-child {
   margin-bottom: 0;
 }
 .container .content .storeContent .storeLayout .storeImg {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   margin-right: 20px;
   border-radius: 14px;
   border: 2px solid #E6E8EB;
@@ -84,6 +98,20 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.container .content .storeContent .storeLayout .storeInptWrap .storeInfoBox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.container .content .storeContent .storeLayout .storeInptWrap .infoWrap {
+  width: 100%;
+}
+.storeContent .storeLayout .storeInptWrap .infotime {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 .container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap {
   flex-direction: row;
@@ -137,7 +165,8 @@
 }
 .container .content .menuList {
   width: 100%;
-  height: calc(100dvh - 48px - 40px - 80px);
+  height: calc(100dvh - 40px - 60px - 70px);
+  /* height: calc(61.5dvh - 60px) ; */
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
@@ -145,7 +174,7 @@
 }
 .container .content .menuList .menu {
   width: calc((100% - 60px) / 4);
-  height: 275px;
+  height: fit-content;
   background-color: #FFFFFF;
   border-radius: 12px;
   margin-top: 20px;
@@ -158,6 +187,31 @@
   margin-right: 0;
 }
 .container .content .menuList .menu:nth-child(-n+4) {
+  margin-top: 0;
+}
+.container .content .shopMenu .menuList {
+  width: 100%;
+  height: calc(61.5dvh - 80px) ;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  margin-top: 3.5%;
+}
+.container .content .shopMenu .menuList .menu {
+  width: calc((100% - 80px) / 5);
+  height: fit-content;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 1px solid #E6E8EB;
+  padding: 10px;
+  cursor: pointer;
+}
+.container .content .shopMenu .menuList .menu:nth-child(5n) {
+  margin-right: 0;
+}
+.container .content .shopMenu .menuList .menu:nth-child(-n+5) {
   margin-top: 0;
 }
 .container .content .menuList .menu .menuImg {
