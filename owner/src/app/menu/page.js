@@ -32,9 +32,10 @@ export default function menu() {
 
   const menuFilter = (el) => {
     if (status === "SALE") return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1";
-    if (status === "SOLDOUT_YN") return el.SOLDOUT_YN === "1";
-    if (status === "EXPSR_YN") return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "0";
-  }
+    if (status === "SOLDOUT") return el.SOLDOUT_YN === "1";
+    if (status === "HIDDEN")
+      return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "0";
+  };
 
   const clickModal = (el) => {
     setShowModal(!showModal);
@@ -54,16 +55,35 @@ export default function menu() {
         </div>
         {/* 필터 */}
         <div className={common.menuFilter}>
-          <button onClick={() => setStatus("SALE")} className={status === "SALE" ? common.on : ""}>판매 중</button>
-          <button onClick={() => setStatus("SOLDOUT_YN")} className={status === "SOLDOUT_YN" ? common.on : ""}>품절 메뉴</button>
-          <button onClick={() => setStatus("EXPSR_YN")} className={status === "EXPSR_YN" ? common.on : ""}>숨긴 메뉴</button>
+          <button
+            onClick={() => setStatus("SALE")}
+            className={status === "SALE" ? common.on : ""}
+          >
+            판매 중
+          </button>
+          <button
+            onClick={() => setStatus("SOLDOUT")}
+            className={status === "SOLDOUT" ? common.on : ""}
+          >
+            품절 메뉴
+          </button>
+          <button
+            onClick={() => setStatus("HIDDEN")}
+            className={status === "HIDDEN" ? common.on : ""}
+          >
+            숨긴 메뉴
+          </button>
         </div>
         {/* 리스트 */}
         <ul className={common.menuList}>
           {data
-              .filter((el) => menuFilter(el))
-              .map((el, index) => (
-              <li key={index} className={common.menu} onClick={() => clickModal(el)}>
+            .filter((el) => menuFilter(el))
+            .map((el, index) => (
+              <li
+                key={index}
+                className={common.menu}
+                onClick={() => clickModal(el)}
+              >
                 <div className={common.menuImg}>
                   {/*<Image src={} alt={}/>*/}
                   <span>메뉴 사진</span>
@@ -82,8 +102,7 @@ export default function menu() {
                   {el.GDS_PRC.toLocaleString("ko-KR")}
                 </p>
               </li>
-            )
-          )}
+            ))}
         </ul>
       </div>
 
