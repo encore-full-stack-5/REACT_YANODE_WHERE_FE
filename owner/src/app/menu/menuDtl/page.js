@@ -3,7 +3,10 @@ import Image from "next/image";
 import Input from "@/app/component/Input";
 import Textarea from "@/app/component/Textarea";
 import { useEffect, useState } from "react";
-
+const obj = {
+  name: "",
+  price: "",
+};
 export default function menuDtl(props) {
   // props
   const { clickModal, menuDtl } = props;
@@ -13,8 +16,15 @@ export default function menuDtl(props) {
   const [option, setOption] = useState([]);
 
   const addOption = () => {
-    const newOption = "";
-    setOption([newOption, ...option]);
+    const newOption = { ...obj };
+    setOption([...option, newOption]);
+  };
+
+  const deleteOption = (i) => {
+    // debugger;
+    const spliceOption = option.filter((el, ind) => ind !== i);
+
+    setOption(spliceOption);
   };
   //function
   const menuStatus = () => {
@@ -29,7 +39,15 @@ export default function menuDtl(props) {
 
   useEffect(() => {
     menuStatus();
+    addOption();
   }, []);
+  const onChange = (e, i) => {
+    const { name, value } = e.target;
+    const mapOption = option.map((el, index) =>
+      index === i ? { ...el, [name]: value } : el
+    );
+    setOption(mapOption);
+  };
 
   return (
     <>
@@ -61,21 +79,30 @@ export default function menuDtl(props) {
             />
             <div className={common.inptWrap}>
               {option.map((el, index) => (
-                <>
-                  <label>
-                    메뉴 옵션<span className={common.num}>{index + 1}</span>
-                  </label>
+                <div key={"op" + index}>
+                  <div className={common.deleteOption}>
+                    <label>
+                      메뉴 옵션<span className={common.num}>{index + 1}</span>
+                    </label>
+                    <button onClick={() => deleteOption(index)}>삭제</button>
+                  </div>
                   <input
                     type="text"
                     className={common.inpt}
                     placeholder="옵션명"
+                    value={el.title}
+                    name="title"
+                    onChange={(e) => onChange(e, index)}
                   />
                   <input
                     type="number"
                     className={common.inpt}
                     placeholder="옵션 가격"
+                    value={el.price}
+                    name="price"
+                    onChange={(e) => onChange(e, index)}
                   />
-                </>
+                </div>
               ))}
               {/*여기까지*/}
               <button className={common.optnAdd} onClick={() => addOption()}>
