@@ -241,11 +241,26 @@
 .container .content .menuForm .inptWrap:nth-child(2) {
   flex: 1;
 }
-.container .content .menuForm .inptWrap label {
+.container .content .menuForm .inptWrap .optionWrap {
+  margin-bottom: 10px;
+}
+.container .content .menuForm .inptWrap .optionWrap:last-child {
+  margin-bottom: 0;
+}
+.container .content .menuForm .inptWrap .optionWrap .deleteOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.container .content .menuForm .inptWrap .optionWrap .deleteOption button {
+  margin-right: 10px;
+  color: #ff6060;
+}
+.container .content .menuForm .inptWrap .optionWrap label {
   display: flex;
   align-items: center;
 }
-.container .content .menuForm .inptWrap label .num {
+.container .content .menuForm .inptWrap .optionWrap label .num {
   margin-left: 5px;
   display: flex;
   align-items: center;
@@ -263,7 +278,7 @@
   height: 40px;
   border-radius: 14px;
   background-color: #E6E8EB;
-  font-size: 1.8rem;
+  font-size: 0.8rem;
   color: #778088;
   display: flex;
   align-items: center;
@@ -274,8 +289,8 @@
   background-color: #CCD1D7;
   transition: all 0.2s;
 }
-.container .content .menuForm .optnAdd p {
-  height: 100%;
+.container .content .menuForm .optnAdd p:last-child {
+  margin-left: 5px;
 }
 .container .content .menuSet {
   margin-top: 20px;
