@@ -3,14 +3,14 @@
 import axios from "axios";
 import common from "@/resources/common.module.css";
 import Image from "next/image";
-import Input from "@/app/component/Input";
-import Textarea from "@/app/component/Textarea";
 import { useEffect, useState } from "react";
 import MenuDtl from "@/app/menu/menuDtl/page";
 export default function menu() {
   // state
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [menuDtl, setMenuDtl] = useState();
+  const [status, setStatus] = useState("SALE");
 
   // function
   const getdata = async () => {
@@ -25,16 +25,20 @@ export default function menu() {
   };
 
   const menuState = (el) => {
-    /*판매 > SOLDOUT_YN == N , EXPSR_YN == N
-    품절 > SOLDOUT_YN == Y , EXPSR_YN == N
-    숨김 > SOLDOUT_YN == N , EXPSR_YN == Y*/
     if (el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1") return "판매";
     if (el.SOLDOUT_YN === "1") return "품절";
     if (el.EXPSR_YN === "0") return "숨김";
   };
 
-  const clickModal = () => {
+  const menuFilter = (el) => {
+    if (status === "SALE") return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1";
+    if (status === "SOLDOUT_YN") return el.SOLDOUT_YN === "1";
+    if (status === "EXPSR_YN") return el.SOLDOUT_YN === "0" && el.EXPSR_YN === "0";
+  }
+
+  const clickModal = (el) => {
     setShowModal(!showModal);
+    setMenuDtl(el);
   };
 
   // useEffect
@@ -43,7 +47,6 @@ export default function menu() {
   }, []);
   return (
     <>
-      {console.log(data)}
       <div>
         <div className={common.pageTitleWrap}>
           <h2>메뉴 등록</h2>
@@ -51,37 +54,40 @@ export default function menu() {
         </div>
         {/* 필터 */}
         <div className={common.menuFilter}>
-          <button className={common.on}>전체</button>
-          <button>품절 메뉴</button>
-          <button>숨긴 메뉴</button>
+          <button onClick={() => setStatus("SALE")} className={status === "SALE" ? common.on : ""}>판매 중</button>
+          <button onClick={() => setStatus("SOLDOUT_YN")} className={status === "SOLDOUT_YN" ? common.on : ""}>품절 메뉴</button>
+          <button onClick={() => setStatus("EXPSR_YN")} className={status === "EXPSR_YN" ? common.on : ""}>숨긴 메뉴</button>
         </div>
         {/* 리스트 */}
         <ul className={common.menuList}>
-          {data.map((el, index) => (
-            <li key={index} className={common.menu} onClick={clickModal}>
-              <div className={common.menuImg}>
-                {/*<Image src={} alt={}/>*/}
-                <span>메뉴 사진</span>
-              </div>
-              <p className={common.menuNm}>{el.GDS_NM}</p>
-              <p className={common.menuDesc}>{el.GDS_DESC}</p>
-              <div className={common.menuOpt}>
-                <p>옵션 개수</p>
-                <p>2</p>
-              </div>
-              <div className={common.menuYn}>
-                <p>메뉴 상태</p>
-                <p>{menuState(el)}</p>
-              </div>
-              <p className={common.menuPrc}>
-                {el.GDS_PRC.toLocaleString("ko-KR")}
-              </p>
-            </li>
-          ))}
+          {data
+              .filter((el) => menuFilter(el))
+              .map((el, index) => (
+              <li key={index} className={common.menu} onClick={() => clickModal(el)}>
+                <div className={common.menuImg}>
+                  {/*<Image src={} alt={}/>*/}
+                  <span>메뉴 사진</span>
+                </div>
+                <p className={common.menuNm}>{el.GDS_NM}</p>
+                <p className={common.menuDesc}>{el.GDS_DESC}</p>
+                <div className={common.menuOpt}>
+                  <p>옵션 개수</p>
+                  <p>2</p>
+                </div>
+                <div className={common.menuYn}>
+                  <p>메뉴 상태</p>
+                  <p>{menuState(el)}</p>
+                </div>
+                <p className={common.menuPrc}>
+                  {el.GDS_PRC.toLocaleString("ko-KR")}
+                </p>
+              </li>
+            )
+          )}
         </ul>
       </div>
 
-      {showModal && <MenuDtl clickModal={clickModal} />}
+      {showModal && <MenuDtl clickModal={clickModal} menuDtl={menuDtl} />}
     </>
   );
 }

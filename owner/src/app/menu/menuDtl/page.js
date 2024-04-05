@@ -3,10 +3,11 @@ import Image from "next/image";
 import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
 import Textarea from "@/app/component/Textarea";
-import { Teko } from "next/dist/compiled/@next/font/dist/google";
 
 export default function menuDtl(props) {
-  const { clickModal } = props;
+  // props
+  const { clickModal, menuDtl } = props;
+
   return (
     <>
       <div className={common.popupContainer}>
@@ -24,9 +25,9 @@ export default function menuDtl(props) {
                 <Image src={""} alt={"사진 추가"} />
               </div>
             </div>
-            <Input name={"메뉴명"} type={"text"} />
-            <Textarea name={"메뉴설명"} />
-            <Input name={"메뉴가격"} type={"number"} />
+            <Input name={"메뉴명"} type={"text"} defaultValue={menuDtl.GDS_NM}/>
+            <Textarea name={"메뉴설명"} defaultValue={menuDtl.GDS_DESC}/>
+            <Input name={"메뉴가격"} type={"number"} defaultValue={menuDtl.GDS_PRC}/>
             <div className={common.inptWrap}>
               {/*옵션*/}
               <label>
