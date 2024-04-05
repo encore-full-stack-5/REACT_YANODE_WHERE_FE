@@ -21,11 +21,6 @@ export default function Side() {
                 {/* 메뉴 */}
                 <ul className={framework.sideList}>
                     <li 
-                        className={[framework.side].join(' ')}
-                        onClick={() => router.push("/")}
-                        id={"dashboard"}
-                    >대시보드</li>
-                    <li 
                         className={[framework.side, framework.on].join(' ')}
                         onClick={() => router.push("/store")}
                         id={"store"}
@@ -37,7 +32,7 @@ export default function Side() {
                     >나의 주문</li>
                     <li 
                         className={[framework.side].join(' ')}
-                        onClick={() => router.push("/name")}
+                        onClick={() => router.push("/")}
                         id={"name"}
                     >내 정보</li>
                 </ul>

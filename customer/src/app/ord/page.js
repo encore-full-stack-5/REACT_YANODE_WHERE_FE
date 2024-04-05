@@ -5,15 +5,16 @@ import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import OrdDtl from "@/app/ord/ordDtl/page"
 
 export default function ord() {
     const [data, setData] = useState([]);
-    const [showOrd, setShowOrd] = useState(false);
+    const [showOrdId, setShowOrdId] = useState(0);
 
     const getdata = async () => {
         try {
           const response = await axios.get(
-            "http://192.168.80.39:3001/users/orders/12"
+            "http://192.168.80.39:3001/users/orders/11"
           );
           console.log(response.data);
           setData(response.data);
@@ -23,7 +24,7 @@ export default function ord() {
       };
 
     const clickOrd = () => {
-        setShowOrd(!setShowOrd);
+        setShowOrdId(showOrdId ? 0 : data[0].ORD_ID);
       };
     
       // useEffect
@@ -50,19 +51,21 @@ export default function ord() {
                         {data?(data.map((e,i)=>
                             <li 
                                 key={i}
-                                className={common.ordList}>
+                                className={common.ordList}
+                                onClick={() => setShowOrdId(e.ORD_ID)}
+                            >
                                 {/*주문ID*/}
                                 <p>{e.ORD_ID}</p>
                                 {/*상품이름*/}
-                                <p>oder_product.GDS_ID.GDS_NM</p>
+                                <p>{e.GDS_NM}</p>
                                 {/*수량*/}
                                 <p>{e.ORD_QTY}</p>
                                 {/*가격*/}
                                 <p>{e.ORD_TPRC}</p>
                                 {/*매장이름*/}
-                                <p>e.SHOP_ID.SHOP_NM</p>
+                                <p>{e.SHOP_NM}</p>
                                 {/*상태*/}
-                                <p>delivery.DLV_STATE</p>
+                                <p>{e.DLV_STATE}</p>
                             </li>
                         )):""}
                     </ul>
@@ -108,6 +111,8 @@ export default function ord() {
                     </ul>
                 </div>
             </div>
+
+            {showOrdId && <OrdDtl  clickOrd={clickOrd} ord_id={showOrdId}/>}
         </>
     )
 }
