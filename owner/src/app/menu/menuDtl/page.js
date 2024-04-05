@@ -62,7 +62,7 @@ export default function menuDtl(props) {
   //function
   const menuStatus = () => {
     if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "1") setStatus("1");
-    if (menuDtl.SOLDOUT_YN === "1") setStatus("2");
+    if (menuDtl.SOLDOUT_YN === "1" && menuDtl.EXPSR_YN === "1") setStatus("2");
     if (menuDtl.SOLDOUT_YN === "0" && menuDtl.EXPSR_YN === "0") setStatus("3");
   };
   const chageStatusSelect = () => {
