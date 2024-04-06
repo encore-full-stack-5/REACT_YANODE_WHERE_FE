@@ -14,7 +14,7 @@ export default function ord() {
     const getdata = async () => {
         try {
           const response = await axios.get(
-            "http://192.168.80.39:3001/users/orders/11"
+            "http://220.78.7.18:3001/users/orders/11"
           );
           console.log(response.data);
           setData(response.data);
@@ -42,8 +42,8 @@ export default function ord() {
                     <div className={common.ordTableHead}>
                         <p>주문ID</p>
                         <p>상품이름</p>
-                        <p>수량</p>
-                        <p>가격</p>
+                        <p>총 수량</p>
+                        <p>총 가격</p>
                         <p>매장이름</p>
                         <p>상태</p>
                     </div>
@@ -59,7 +59,7 @@ export default function ord() {
                                 {/*상품이름*/}
                                 <p>{e.GDS_NM}</p>
                                 {/*수량*/}
-                                <p>{e.ORD_QTY}</p>
+                                <p>{e.ORD_TQTY}</p>
                                 {/*가격*/}
                                 <p>{e.ORD_TPRC}</p>
                                 {/*매장이름*/}

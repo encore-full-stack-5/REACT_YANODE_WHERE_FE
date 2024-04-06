@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
           <body className={[inter.className, commonCss.container].join(' ')}>
             <Side></Side>
-              <main className={commonCss.content}>
-                {children}
-              </main>
+            <main className={commonCss.content}>
+              {children}
+            </main>
           </body>
       </html>
   );

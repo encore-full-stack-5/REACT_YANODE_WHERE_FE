@@ -16,7 +16,7 @@ export default function ordDtl(props) {
     const getdata = async () => {
         try {
             const response = await axios.get(
-                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details"
+                "http://220.78.7.18:3001/users/orders/"+ord_id+"/details"
             );
             setData(response.data[0]);
         } catch (error) {
@@ -27,7 +27,7 @@ export default function ordDtl(props) {
     const getOptionData = async () => {
         try {
             const response = await axios.get(
-                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details/options"
+                "http://220.78.7.18:3001/users/orders/"+ord_id+"/details/options"
             );
             console.log(response.data);
             setDataOpt(response.data);
@@ -82,7 +82,7 @@ export default function ordDtl(props) {
                                     <input
                                         type="number"
                                         className={common.inpt}
-                                        defaultValue={data?(data.RVR_ZIPN):""}
+                                        defaultValue={data?(data.RCVR_ZIPN):""}
                                         readOnly
                                     />
                                 </div>
@@ -129,7 +129,7 @@ export default function ordDtl(props) {
                                             {/*옵션 가격*/}
                                             <p>{e.OPTION_PRC}</p>
                                             {/*수량*/}
-                                            <p>{e.ORD_QTY}</p>
+                                            <p>{e.GDS_QTY}</p>
                                         </li>
                                     )):""}
                                 </ul>
@@ -140,7 +140,7 @@ export default function ordDtl(props) {
                                     <input
                                         type="text"
                                         className={common.inpt}
-                                        defaultValue={data?(data.ORD_QTY):""}
+                                        defaultValue={data?(data.ORD_TQTY):""}
                                         readOnly
                                     />
                                 </div>
