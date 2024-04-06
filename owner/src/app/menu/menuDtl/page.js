@@ -10,13 +10,13 @@ const obj = {
 };
 export default function menuDtl(props) {
   // props
-  const { clickModal, menuDtl } = props;
+  const { clickModal, menuDtl, saveModal, getData } = props;
 
   // state
   const [status, setStatus] = useState("");
   const [option, setOption] = useState([]);
 
-  const postdata = async (req, res) => {
+  const putData = async (req, res) => {
     let soldOut = 0;
     let exposure = 1;
 
@@ -29,7 +29,7 @@ export default function menuDtl(props) {
     }
     try {
       const response = await axios.put(
-        "http://192.168.80.39:3001/owners/products",
+        "http://220.78.7.18:3001/owners/products",
         {
           data: [
             menuDtl.GDS_ID,
@@ -70,10 +70,6 @@ export default function menuDtl(props) {
     return setStatus(status.value);
   };
 
-  useEffect(() => {
-    menuStatus();
-    addOption();
-  }, []);
   const onChange = (e, i) => {
     const { name, value } = e.target;
     const mapOption = option.map((el, index) =>
@@ -81,6 +77,17 @@ export default function menuDtl(props) {
     );
     setOption(mapOption);
   };
+
+  const clickSave = async () => {
+    await putData();
+    getData();
+    saveModal();
+  };
+
+  useEffect(() => {
+    menuStatus();
+    addOption();
+  }, []);
 
   return (
     <>
@@ -166,7 +173,12 @@ export default function menuDtl(props) {
               </div>
               <button className={common.del}>삭제</button>
             </div>
-            <button className={common.sav} onClick={() => postdata()}>
+            <button
+              className={common.sav}
+              onClick={() => {
+                clickSave();
+              }}
+            >
               저장
             </button>
           </div>

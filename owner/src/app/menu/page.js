@@ -14,7 +14,7 @@ export default function menu() {
 
   // function
   // 메뉴 조회
-  const getdata = async () => {
+  const getData = async () => {
     try {
       const response = await axios.get(
         "http://220.78.7.18:3001/owners/products/13"
@@ -43,10 +43,13 @@ export default function menu() {
     setShowModal(!showModal);
     setMenuDtl(el);
   };
+  const saveModal = (el) => {
+    setShowModal(!showModal);
+  };
 
   // useEffect
   useEffect(() => {
-    getdata();
+    getData();
   }, []);
   return (
     <>
@@ -110,7 +113,14 @@ export default function menu() {
         </ul>
       </div>
 
-      {showModal && <MenuDtl clickModal={clickModal} menuDtl={menuDtl} />}
+      {showModal && (
+        <MenuDtl
+          clickModal={clickModal}
+          menuDtl={menuDtl}
+          saveModal={saveModal}
+          getData={getData}
+        />
+      )}
     </>
   );
 }
