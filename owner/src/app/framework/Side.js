@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function Side() {
   const router = useRouter();
+  const [status, setStatus] = useState("storeInfo");
 
   return (
     <>
@@ -25,45 +26,81 @@ export default function Side() {
 
         {/* 메뉴 */}
         <ul className={framework.sideList}>
-          <li
-            className={[framework.side, framework.on].join(" ")}
-            onClick={() => router.push("/")}
+          {/* <li
+            onClick={() => {
+              setStatus("dashBoard");
+              router.push("/");
+            }}
+            className={[
+              framework.side,
+              status === "dashBoard" ? framework.on : "",
+            ].join(" ")}
             id={"dashboard"}
           >
             대시보드
-          </li>
+          </li> */}
           <li
-            className={[framework.side].join(" ")}
-            onClick={() => router.push("/store")}
+            onClick={() => {
+              setStatus("storeInfo");
+              router.push("/store");
+            }}
+            className={[
+              framework.side,
+              status === "storeInfo" ? framework.on : "",
+            ].join(" ")}
             id={"store"}
           >
             가게 정보
           </li>
           <li
-            className={[framework.side].join(" ")}
-            onClick={() => router.push("/menu")}
+            onClick={() => {
+              setStatus("menu");
+              router.push("/menu");
+            }}
+            className={[
+              framework.side,
+              status === "menu" ? framework.on : "",
+            ].join(" ")}
             id={"menu"}
           >
             메뉴 등록
           </li>
           <li
-            className={[framework.side].join(" ")}
-            onClick={() => router.push("/ord")}
+            onClick={() => {
+              setStatus("ord");
+              router.push("/ord");
+            }}
+            className={[
+              framework.side,
+              status === "ord" ? framework.on : "",
+            ].join(" ")}
             id={"ord"}
           >
             주문 접수<span>3</span>
           </li>
           <li
-            className={[framework.side].join(" ")}
-            onClick={() => router.push("/sale")}
+            onClick={() => {
+              setStatus("sale");
+              router.push("/sale");
+            }}
+            className={[
+              framework.side,
+              status === "sale" ? framework.on : "",
+            ].join(" ")}
             id={"sale"}
           >
             매출 조회
           </li>
           <li
-            className={[framework.side].join(" ")}
-            onClick={() => router.push("/my")}
-            id={"name"}
+            onClick={() => {
+              setStatus("my");
+              router.push("/my");
+            }}
+            className={[
+              framework.side,
+              status === "my" ? framework.on : "",
+            ].join(" ")}
+            id={"my"}
           >
             내 정보
           </li>

@@ -10,11 +10,17 @@
   float: right;
   padding: 20px;
 }
+.pageTitleWrap div:nth-child(2) {
+  margin-top: 10px;
+}
+
 .container .content .pageTitleWrap {
   width: 100%;
+  height: 6.5dvh;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 15px;
 }
 .container .content .pageTitleWrap span {
   margin-left: 10px;
@@ -34,7 +40,7 @@
 }
 .container .content .storeContent {
   width: 100%;
-  height: calc(100dvh - 48px - 40px);
+  height: 32dvh;
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 20px;
@@ -47,10 +53,9 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 .container .content .storeContent .storeLayout:first-child .storeInptWrap {
-  width: calc(100% - 270px);
+  width: calc(100% - 220px);
 }
 .container .content .storeContent .storeLayout:nth-child(2) {
   flex: 1;
@@ -64,12 +69,21 @@
 .container .content .storeContent .storeLayout:nth-child(2) .storeInptWrap .inptWrap textarea {
   height: 100%;
 }
+.storeLayout .storeInptWrap .infotime .inptWrap{
+  width: 50%;
+}
+.storeLayout .storeInptWrap .infotime span{
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container .content .storeContent .storeLayout:last-child {
   margin-bottom: 0;
 }
 .container .content .storeContent .storeLayout .storeImg {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   margin-right: 20px;
   border-radius: 14px;
   border: 2px solid #E6E8EB;
@@ -84,6 +98,20 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.container .content .storeContent .storeLayout .storeInptWrap .storeInfoBox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.container .content .storeContent .storeLayout .storeInptWrap .infoWrap {
+  width: 100%;
+}
+.storeContent .storeLayout .storeInptWrap .infotime {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 .container .content .storeContent .storeLayout:has(.setTime) .storeInptWrap {
   flex-direction: row;
@@ -137,14 +165,16 @@
 }
 .container .content .menuList {
   width: 100%;
-  height: calc(100dvh - 48px - 40px - 60px);
+  height: calc(100dvh - 40px - 60px - 70px);
+  /* height: calc(61.5dvh - 60px) ; */
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
+  margin-top: 3.5%;
 }
 .container .content .menuList .menu {
   width: calc((100% - 60px) / 4);
-  height: 325px;
+  height: fit-content;
   background-color: #FFFFFF;
   border-radius: 12px;
   margin-top: 20px;
@@ -157,6 +187,31 @@
   margin-right: 0;
 }
 .container .content .menuList .menu:nth-child(-n+4) {
+  margin-top: 0;
+}
+.container .content .shopMenu .menuList {
+  width: 100%;
+  height: calc(61.5dvh - 80px) ;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  margin-top: 3.5%;
+}
+.container .content .shopMenu .menuList .menu {
+  width: calc((100% - 80px) / 5);
+  height: fit-content;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 1px solid #E6E8EB;
+  padding: 10px;
+  cursor: pointer;
+}
+.container .content .shopMenu .menuList .menu:nth-child(5n) {
+  margin-right: 0;
+}
+.container .content .shopMenu .menuList .menu:nth-child(-n+5) {
   margin-top: 0;
 }
 .container .content .menuList .menu .menuImg {
@@ -241,26 +296,11 @@
 .container .content .menuForm .inptWrap:nth-child(2) {
   flex: 1;
 }
-.container .content .menuForm .inptWrap .optionWrap {
-  margin-bottom: 10px;
-}
-.container .content .menuForm .inptWrap .optionWrap:last-child {
-  margin-bottom: 0;
-}
-.container .content .menuForm .inptWrap .optionWrap .deleteOption {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.container .content .menuForm .inptWrap .optionWrap .deleteOption button {
-  margin-right: 10px;
-  color: #ff6060;
-}
-.container .content .menuForm .inptWrap .optionWrap label {
+.container .content .menuForm .inptWrap label {
   display: flex;
   align-items: center;
 }
-.container .content .menuForm .inptWrap .optionWrap label .num {
+.container .content .menuForm .inptWrap label .num {
   margin-left: 5px;
   display: flex;
   align-items: center;
@@ -278,7 +318,7 @@
   height: 40px;
   border-radius: 14px;
   background-color: #E6E8EB;
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   color: #778088;
   display: flex;
   align-items: center;
@@ -289,8 +329,8 @@
   background-color: #CCD1D7;
   transition: all 0.2s;
 }
-.container .content .menuForm .optnAdd p:last-child {
-  margin-left: 5px;
+.container .content .menuForm .optnAdd p {
+  height: 100%;
 }
 .container .content .menuSet {
   margin-top: 20px;
@@ -409,11 +449,8 @@
   display: flex;
   flex-wrap: wrap;
 }
-.container .content .ordFormWrap .ordForm.prc .inptWrap {
+.container .content .ordFormWrap .ordForm:has(.prc) .inptWrap {
   margin-bottom: 0;
-}
-.container .content .ordFormWrap .ordForm.prc .inptWrap:nth-child(2) .inpt, .container .content .ordFormWrap .ordForm.prc .inptWrap:nth-child(3) .inpt {
-  text-align: right;
 }
 .container .content .ordFormWrap .ordForm .inptWrap {
   width: calc((100% - 20px) / 3);
@@ -422,13 +459,16 @@
 .container .content .ordFormWrap .ordForm .inptWrap:last-child {
   margin-right: 0;
 }
+.container .content .ordFormWrap .ordForm .inptWrap.prc .inpt {
+  text-align: right;
+}
 .container .content .ordFormWrap .ordTableWrap {
   margin-top: 0;
   height: auto;
   margin-bottom: 10px;
 }
 .container .content .ordFormWrap .ordTableWrap .ordTable {
-  max-height: 100px;
+  max-height: 145px;
   height: auto;
   overflow: auto;
 }
@@ -670,7 +710,7 @@
 .container .content .srchListWrap .srchList .srch .inptWrap label {
   display: flex;
   align-items: center;
-  width: 70px;
+  width: 100px;
   margin-bottom: 0;
 }
 .container .content .srchListWrap .srchList .srch .inptWrap .srchDate {
