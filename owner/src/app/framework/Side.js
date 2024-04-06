@@ -13,20 +13,20 @@ export default function Side() {
 
   // function
   // 주문 조회
-  // const getData = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //         "http://220.78.7.18:3001/owners/orders/13"
-  //     );
-  //     setData(response.data);
-  //   } catch (error) {
-  //     alert("조회 에러");
-  //   }
-  // };
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+          "http://220.78.7.18:3001/owners/orders/13"
+      );
+      setData(response.data);
+    } catch (error) {
+      alert("조회 에러");
+    }
+  };
 
   // useEffect
   useEffect(() => {
-    // getData();
+    getData();
   }, []);
 
   return (
