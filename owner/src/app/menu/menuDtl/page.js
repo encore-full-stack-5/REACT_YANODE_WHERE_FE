@@ -29,7 +29,7 @@ export default function menuDtl(props) {
     }
     try {
       const response = await axios.put(
-        "http://192.168.80.39:3001/owners/products",
+        "http://220.78.7.18:3001/owners/products",
         {
           data: [
             menuDtl.GDS_ID,

@@ -15,7 +15,7 @@ export default function storeMenu() {
 
     const getShopData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/users/stores/"+shop_id);
+            const response = await axios.get("http://220.78.7.18:3001/users/stores/"+shop_id);
             setShopData(response.data[0]);
         } catch (error) {
             console.log(error);
@@ -24,7 +24,7 @@ export default function storeMenu() {
     }
     const getProductData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/users/products/"+shop_id);
+            const response = await axios.get("http://220.78.7.18:3001/users/products/"+shop_id);
             setProductData(response.data);
         } catch (error) {
             console.log(error);
