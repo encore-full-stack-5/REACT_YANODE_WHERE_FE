@@ -405,6 +405,9 @@
   height: calc(100% - 36px - 50px);
   overflow: auto;
 }
+.container .content .ordFormWrap:not(:has(+ .ordBtn)) {
+  height: calc(100% - 36px);
+}
 .container .content .ordFormWrap .ordForm {
   display: flex;
   flex-wrap: wrap;

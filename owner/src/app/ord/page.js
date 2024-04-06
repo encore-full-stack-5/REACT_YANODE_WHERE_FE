@@ -1,13 +1,57 @@
+"use client"
+
 import common from "@/resources/common.module.css";
 import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import OrdDtl from "@/app/ord/ordDtl/page";
 
 export default function ord() {
+    // state
+    const [data, setData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [ordDtl, setOrdDtl] = useState();
+
+    // function
+    // 주문 조회
+    const getData = async () => {
+        try {
+            const response = await axios.get(
+                "http://220.78.7.18:3001/owners/orders/13"
+            );
+            setData(response.data);
+        } catch (error) {
+            alert("조회 에러");
+        }
+    };
+
+    // 주문상태 한글화
+    const ordState = (el) => {
+        const state = el.ORD_STATE;
+        if (state === 100) return "접수";
+        else if (state === 200) return "주문";
+        else if (state === 300) return "반품";
+        else if (state === 400) return "교환";
+        else if (state === 500) return "환불";
+        else if (state === 600) return "반려";
+    };
+
+    // 주문상세 팝업
+    const clickModal = (el) => {
+        setShowModal(!showModal);
+        setOrdDtl(el);
+    };
+
+    // useEffect
+    useEffect(() => {
+        getData();
+    }, []);
     return (
         <>
             <div>
                 <div className={common.pageTitleWrap}>
-                    <h2>주문 접수<span>3</span></h2>
+                    <h2>주문 접수<span>{data.filter(el => el.ORD_STATE === 100).length}</span></h2>
                 </div>
                 <div className={common.ordTableWrap}>
                     <div className={common.ordTableHead}>
@@ -17,16 +61,25 @@ export default function ord() {
                         <p>주문일시</p>
                     </div>
                     <ul className={common.ordTable}>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>1</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                        </li>
+                        {
+                            data
+                                .filter(el => el.ORD_STATE === 100)
+                                .map((el, i) => (
+                                    <li
+                                        className={common.ordList}
+                                        key={i}
+                                        onClick={() => clickModal(el)}>
+                                        {/*주문ID*/}
+                                        <p>{el.ORD_ID}</p>
+                                        {/*상품명*/}
+                                        <p>{el.GDS_NM}</p>
+                                        {/*고객명*/}
+                                        <p>{el.ORDRR_NM}</p>
+                                        {/*주문일시*/}
+                                        <p>{el.ORD_DT}</p>
+                                    </li>
+                                ))
+                        }
                     </ul>
                 </div>
 
@@ -52,21 +105,33 @@ export default function ord() {
                         <p>주문상태</p>
                     </div>
                     <ul className={common.ordTable}>
-                        <li className={common.ordList}>
-                            {/*주문ID*/}
-                            <p>1</p>
-                            {/*상품명*/}
-                            <p>평양 물냉면</p>
-                            {/*고객명*/}
-                            <p>박미람</p>
-                            {/*주문일시*/}
-                            <p>2024-04-03 17:48:33</p>
-                            {/*주문상태*/}
-                            <p>결제완료</p>
-                        </li>
+                        {
+                            data
+                                .filter(el => el.ORD_STATE !== 100)
+                                .map((el, i) => (
+                                    <li
+                                        className={common.ordList}
+                                        key={i}
+                                        onClick={() => clickModal(el)}
+                                    >
+                                        {/*주문ID*/}
+                                        <p>{el.ORD_ID}</p>
+                                        {/*상품명*/}
+                                        <p>{el.GDS_NM}</p>
+                                        {/*고객명*/}
+                                        <p>{el.ORDRR_NM}</p>
+                                        {/*주문일시*/}
+                                        <p>{el.ORD_DT}</p>
+                                        {/*주문상태*/}
+                                        <p>{ordState(el)}</p>
+                                    </li>
+                                ))
+                        }
                     </ul>
                 </div>
             </div>
+
+            {showModal && <OrdDtl clickModal={clickModal} ordDtl={ordDtl} ordState={ordState} />}
         </>
     )
 }

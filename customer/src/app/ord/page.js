@@ -14,7 +14,7 @@ export default function ord() {
     const getdata = async () => {
         try {
           const response = await axios.get(
-            "http://220.78.7.18:3001/users/orders/11"
+            "http://220.78.7.18:3001/users/orders/"+localStorage.getItem("CUST_ID")
           );
           console.log(response.data);
           setData(response.data);

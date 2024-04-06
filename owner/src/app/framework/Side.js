@@ -2,11 +2,32 @@
 
 import framework from "@/resources/framework.module.css";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function Side() {
+  // state
+  const [data, setData] = useState([]);
   const router = useRouter();
   const [status, setStatus] = useState("storeInfo");
+
+  // function
+  // 주문 조회
+  // const getData = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //         "http://220.78.7.18:3001/owners/orders/13"
+  //     );
+  //     setData(response.data);
+  //   } catch (error) {
+  //     alert("조회 에러");
+  //   }
+  // };
+
+  // useEffect
+  useEffect(() => {
+    // getData();
+  }, []);
 
   return (
     <>
@@ -76,7 +97,7 @@ export default function Side() {
             ].join(" ")}
             id={"ord"}
           >
-            주문 접수<span>3</span>
+            주문 접수<span>{data.filter(el => el.ORD_STATE === 100).length}</span>
           </li>
           <li
             onClick={() => {

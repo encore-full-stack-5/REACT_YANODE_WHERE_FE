@@ -20,7 +20,6 @@ export default function ordDtl(props) {
             );
             setData(response.data[0]);
         } catch (error) {
-        alert("조회 에러");
         }
     };
 
