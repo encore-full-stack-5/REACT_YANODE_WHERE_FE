@@ -12,13 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <html lang="en">
-          <body className={[inter.className, commonCss.container].join(' ')}>
-            <Side></Side>
-            <main className={commonCss.content}>
-              {children}
-            </main>
-          </body>
-      </html>
+    <html lang="en">
+      <body className={[inter.className, commonCss.container].join(" ")}>
+        <Side></Side>
+        <main className={commonCss.content}>{children}</main>
+      </body>
+    </html>
   );
 }
