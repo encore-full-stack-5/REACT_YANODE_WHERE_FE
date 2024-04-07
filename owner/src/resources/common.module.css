@@ -10,6 +10,10 @@
   float: right;
   padding: 20px;
 }
+.container .content:has(.lgn) {
+  width: 100%;
+  position: absolute;
+}
 .container .content .pageTitleWrap {
   width: 100%;
   display: flex;

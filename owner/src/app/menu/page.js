@@ -1,10 +1,10 @@
 "use client";
 
 import axios from "axios";
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import MenuDtl from "@/app/menu/menuDtl/page";
+import MenuDtl from "/src/app/menu/menuDtl/page";
 export default function menu() {
   // state
   const [data, setData] = useState([]);

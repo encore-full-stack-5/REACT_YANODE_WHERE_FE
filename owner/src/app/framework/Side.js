@@ -1,6 +1,6 @@
 "use client";
 
-import framework from "@/resources/framework.module.css";
+import framework from "/src/resources/framework.module.css";
 import { useRouter } from "next/navigation";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -16,7 +16,7 @@ export default function Side() {
   const getData = async () => {
     try {
       const response = await axios.get(
-          "http://220.78.7.18:3001/owners/orders/13"
+          "http://220.78.7.18:3001/owners/orders/25"
       );
       setData(response.data);
     } catch (error) {
@@ -31,6 +31,7 @@ export default function Side() {
 
   return (
     <>
+    {/* <button onClick={console.log(LocalStorage.getItem('OWNER_ID'))}>asfd</button> */}
       <div className={framework.sideWrap}>
         <div>
           {/* 로고 이미지 넣기 */}
@@ -129,7 +130,15 @@ export default function Side() {
         <div className={framework.logoutWrap}>
           <button className={framework.logout}>
             {/* 로그아웃 이미지 자리 */}
-            <p>Log out</p>
+            <p
+              onClick={() => {
+                alert("로그아웃이 완료되었습니다.");
+                localStorage.removeItem('OWNER_ID');
+                router.replace("/");
+              }}
+            >
+              Log out
+            </p>
           </button>
         </div>
       </div>

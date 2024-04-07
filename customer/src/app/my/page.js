@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import common from "@/resources/common.module.css";
-import Input from "@/app/component/Input";
-import mycss from "@/resources/my.module.css";
+import common from "/src/resources/common.module.css";
+import Input from "/src/app/component/Input";
+import mycss from "/src/resources/my.module.css";
 
 export default function my() {
   const [data, setData] = useState([]);

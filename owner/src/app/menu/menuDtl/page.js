@@ -1,8 +1,8 @@
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import axios from "axios";
 import Image from "next/image";
-import Input from "@/app/component/Input";
-import Textarea from "@/app/component/Textarea";
+import Input from "/src/app/component/Input";
+import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
 const obj = {
   name: "",
