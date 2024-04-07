@@ -156,17 +156,22 @@ export default function menuDtl(props) {
               </div>
             </div>
             <Input
+              maxLength="29"
               id={"menuName"}
               name={"메뉴명"}
               type={"text"}
               defaultValue={menuDtl.GDS_NM}
             />
             <Textarea
+              maxLength="254"
               id={"menuDescision"}
               name={"메뉴설명"}
               defaultValue={menuDtl.GDS_DESC}
             />
             <Input
+              onInput={(e) => {
+                e.target.value = e.target.value.slice(0, 20);
+              }}
               id={"menuPrice"}
               name={"메뉴가격"}
               type={"number"}
@@ -182,6 +187,7 @@ export default function menuDtl(props) {
                     <button onClick={() => deleteOption(index)}>삭제</button>
                   </div>
                   <input
+                    maxLength="19"
                     type="text"
                     className={common.inpt}
                     placeholder="옵션명"
@@ -190,6 +196,9 @@ export default function menuDtl(props) {
                     onChange={(e) => onChange(e, index)}
                   />
                   <input
+                    onInput={(e) => {
+                    e.target.value = e.target.value.slice(0, 20);
+                    }}
                     type="number"
                     className={common.inpt}
                     placeholder="옵션 가격"

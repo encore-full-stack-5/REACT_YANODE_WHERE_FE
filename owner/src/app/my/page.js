@@ -20,13 +20,15 @@ export default function my() {
             <Image src={""} alt={"가게 사진"} />
           </div>
           <div className={mycss.storeInptWrap}>
-            <Input name={"이름"} type={"text"} placeholder="이름" />
-
-            <Input name={"이메일"} type={"email"} placeholder="이메일"></Input>
-            <Input name={"비밀번호"} type={"password"} placeholder="비밀번호" />
-            <Input name={"전화번호"} type={"tel"} placeholder="전화번호" />
-            <Input name={"기본주소"} type={"text"} placeholder="기본주소" />
-            <Input name={"상세주소"} type={"password"} placeholder="상세주소" />
+            <Input maxLength="9" name={"이름"} type={"text"} placeholder="이름" />
+            <Input maxLength="99" name={"이메일"} type={"email"} placeholder="이메일"></Input>
+            <Input maxLength="19" name={"비밀번호"} type={"password"} placeholder="비밀번호" />
+            <Input onInput={(e) => {
+                    e.target.value = e.target.value.slice(0, 12);
+                    }}
+                    name={"전화번호"} type={"tel"} placeholder="전화번호" />
+            <Input maxLength="99" name={"기본주소"} type={"text"} placeholder="기본주소" />
+            <Input maxLength="99" name={"상세주소"} type={"password"} placeholder="상세주소" />
           </div>
         </div>
       </div>
