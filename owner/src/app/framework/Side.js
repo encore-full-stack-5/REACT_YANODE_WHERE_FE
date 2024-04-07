@@ -134,7 +134,7 @@ export default function Side() {
               onClick={() => {
                 alert("로그아웃이 완료되었습니다.");
                 localStorage.removeItem('OWNER_ID');
-                router.push("/auth/signin");
+                router.replace("/");
               }}
             >
               Log out
