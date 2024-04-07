@@ -31,6 +31,7 @@ export default function Side() {
 
   return (
     <>
+    {/* <button onClick={console.log(LocalStorage.getItem('OWNER_ID'))}>asfd</button> */}
       <div className={framework.sideWrap}>
         <div>
           {/* 로고 이미지 넣기 */}
@@ -129,7 +130,15 @@ export default function Side() {
         <div className={framework.logoutWrap}>
           <button className={framework.logout}>
             {/* 로그아웃 이미지 자리 */}
-            <p>Log out</p>
+            <p
+              onClick={() => {
+                alert("로그아웃이 완료되었습니다.");
+                localStorage.removeItem('OWNER_ID');
+                router.push("/auth/signin");
+              }}
+            >
+              Log out
+            </p>
           </button>
         </div>
       </div>
