@@ -76,7 +76,7 @@ export default function ord() {
                                         {/*고객명*/}
                                         <p>{el.ORDRR_NM}</p>
                                         {/*주문일시*/}
-                                        <p>{el.ORD_DT}</p>
+                                        <p>{el.ORD_DT.toString().replace('T', ' ').substring(0, 19)}</p>
                                     </li>
                                 ))
                         }
@@ -121,7 +121,7 @@ export default function ord() {
                                         {/*고객명*/}
                                         <p>{el.ORDRR_NM}</p>
                                         {/*주문일시*/}
-                                        <p>{el.ORD_DT}</p>
+                                        <p>{el.ORD_DT.toString().replace('T', ' ').substring(0, 19)}</p>
                                         {/*주문상태*/}
                                         <p>{ordState(el)}</p>
                                     </li>

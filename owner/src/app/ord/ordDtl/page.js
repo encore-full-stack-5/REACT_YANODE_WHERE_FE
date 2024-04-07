@@ -1,10 +1,34 @@
 import common from "@/resources/common.module.css";
 import Image from "next/image";
 import Input from "@/app/component/Input";
+import axios from "axios";
 
 export default function ordDtl(props) {
     // props
     const { clickModal, ordDtl, ordState } = props;
+
+    // function
+    const putData = async (req, res) => {
+        try {
+            const response = await axios.put(
+                "http://220.78.7.18:3001/owners/orders/status",
+                {
+                    data: [
+                        ordDtl.ORD_GDS_ID,
+                        ordDtl.ORD_STATE = 200
+                    ]
+                }
+            );
+            console.log(response.data);
+            res.status(200).json(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const onClickOrdAccept = () => {
+        putData();
+        clickModal();
+    }
 
     return (
         <>
@@ -33,7 +57,7 @@ export default function ordDtl(props) {
                                 <Input
                                     name={"주문일시"}
                                     type={"datetime-local"}
-                                    value={ordDtl.ORD_DT}
+                                    value={ordDtl.ORD_DT.substr(0, 16)}
                                     readOnly
                                 />
                             </div>
@@ -98,13 +122,13 @@ export default function ordDtl(props) {
                                 <Input
                                     name={"전체 주문 수량"}
                                     type={"text"}
-                                    value={""}
+                                    value={ordDtl.ORD_TQTY}
                                     readOnly
                                 />
                                 <Input
                                     name={"전체 주문 판매가"}
                                     type={"text"}
-                                    value={""}
+                                    value={(ordDtl.GDS_PRC + ordDtl.OPTION_PRC) * ordDtl.ORD_TQTY}
                                     readOnly
                                 />
                                 <Input
@@ -117,7 +141,7 @@ export default function ordDtl(props) {
                         </div>
                         {
                             ordDtl.ORD_STATE === 100
-                                ? <button className={common.ordBtn}>주문 접수</button>
+                                ? <button className={common.ordBtn} onClick={onClickOrdAccept}>주문 접수</button>
                                 : ""
                         }
                     </div>
