@@ -78,7 +78,6 @@ export default function menuDtl(props) {
       console.log(error);
     }
   };
-  menuDtl.GDS_ID;
   const deleteData = async (req, res) => {
     try {
       const response = await axios.get(
@@ -122,13 +121,8 @@ export default function menuDtl(props) {
   };
 
   const clickSave = async () => {
-    await putData();
-    getData();
-    saveModal();
-  };
-
-  const clickPostSave = async () => {
-    await postData();
+    const saveData = menuDtl.GDS_ID === undefined ? postData : putData;
+    await saveData();
     getData();
     saveModal();
   };
@@ -230,18 +224,7 @@ export default function menuDtl(props) {
                 삭제
               </button>
             </div>
-            <button
-              className={common.sav}
-              onClick={
-                menuDtl.GDS_ID !== undefined
-                  ? () => {
-                      clickSave();
-                    }
-                  : () => {
-                      clickPostSave();
-                    }
-              }
-            >
+            <button className={common.sav} onClick={clickSave}>
               저장
             </button>
           </div>
