@@ -6,10 +6,12 @@ import Input from "@/app/component/Input";
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
+import MenuDtl from "@/app/store/menu/menuDtl/page";
 
 export default function storeMenu() {
     const [shopData, setShopData] = useState();
     const [productData, setProductData] = useState();
+    const [showMenuDtl, setMenuDtl] = useState(-1);
     const shop_id = useSearchParams().get("shop_id");
     const router = useRouter();
 
@@ -25,6 +27,7 @@ export default function storeMenu() {
     const getProductData = async () => {
         try {
             const response = await axios.get("http://220.78.7.18:3001/users/products/"+shop_id);
+            console.log(response.data)
             setProductData(response.data);
         } catch (error) {
             console.log(error);
@@ -32,16 +35,14 @@ export default function storeMenu() {
         }
     }
 
-    const menuState = (el) => {
-        if (el.SOLDOUT_YN === "0" && el.EXPSR_YN === "1") return "판매";
-        if (el.SOLDOUT_YN === "1") return "품절";
-        if (el.EXPSR_YN === "0") return "숨김";
-    };
+    const clickMenuDtl = (i) => {
+        setMenuDtl(showMenuDtl == -1? i : -1);
+    }
 
-        useEffect(() => {
-            getShopData();
-            getProductData();
-        }, []);
+    useEffect(() => {
+        getShopData();
+        getProductData();
+    }, []);
 
     return (
         <>
@@ -116,13 +117,11 @@ export default function storeMenu() {
                 </div>
 
                 <ul className={common.menuList}>
-                {productData?productData
-                    .filter((el) => {return el.EXPSR_YN === "1"})
-                    .map((e, i) => (
+                {productData?productData.map((e, i) => (
                     <li
                         key={i}
                         className={common.menu}
-                        // onClick={() => clickModal(e)}
+                        onClick={() => clickMenuDtl(i)}
                     >
                         <div className={common.menuImg}>
                         {/*<Image src={} alt={}/>*/}
@@ -131,12 +130,16 @@ export default function storeMenu() {
                         <p className={common.menuNm}>{e.GDS_NM}</p>
                         <p className={common.menuDesc}>{e.GDS_DESC}</p>
                         <div className={common.menuOpt}>
-                        <p>옵션 개수</p>
-                        <p>2</p>
+                            {e.OPTION_NUM==="0"?<p>&nbsp;</p>:
+                                <>
+                                    <p>옵션 개수</p>
+                                    <p>{e.OPTION_NUM}</p>
+                                </>
+                            }
                         </div>
                         <div className={common.menuYn}>
                         <p>메뉴 상태</p>
-                        <p>{menuState(e)}</p>
+                        <p>{e.GDS_SOLDOUT_YN==="1"?"품절":"판매중"}</p>
                         </div>
                         <p className={common.menuPrc}>
                         {e.GDS_PRC.toLocaleString("ko-KR")}
@@ -145,6 +148,13 @@ export default function storeMenu() {
                     )):""}
                 </ul>
             </div>
+
+            {showMenuDtl > -1 &&
+                <MenuDtl
+                clickMenuDtl={clickMenuDtl}
+                menuDtl={productData[showMenuDtl]}
+                />
+            }
         </>
     )
 }

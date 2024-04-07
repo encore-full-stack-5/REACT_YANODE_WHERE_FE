@@ -5,7 +5,7 @@ import Date from "@/app/component/Date";
 import Input from "@/app/component/Input";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import OrdDtl from "@/app/ord/ordDtl/page"
+import OrdDtl from "@/app/ord/ordDtl/page";
 
 export default function ord() {
     const [data, setData] = useState([]);
@@ -25,12 +25,12 @@ export default function ord() {
 
     const clickOrd = () => {
         setShowOrdId(showOrdId ? 0 : data[0].ORD_ID);
-      };
+    };
     
-      // useEffect
-      useEffect(() => {
+    // useEffect
+    useEffect(() => {
         getdata();
-      }, []);
+    }, []);
 
     return (
         <>

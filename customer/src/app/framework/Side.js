@@ -22,8 +22,8 @@ export default function Side() {
                     {/* 로고 이미지 넣기 */}
                     <p className={framework.logo}><span>W</span>here?</p>
                     <div className={framework.userInfo}>
-                        <p className={framework.userNm}><b>야노드</b>님</p>
-                        <p className={framework.userId}>yanode00</p>
+                        <p className={framework.userNm}><b>{localStorage.getItem("CUST_NM")}</b>님</p>
+                        <p className={framework.userId}>{localStorage.getItem("LGN_ID")}</p>
                     </div>
                 </div>
 
@@ -67,6 +67,8 @@ export default function Side() {
                             onClick={() => {
                             alert("로그아웃이 완료되었습니다.");
                             localStorage.removeItem("CUST_ID");
+                            localStorage.removeItem("LGN_ID");
+                            localStorage.removeItem("CUST_NM");
                             router.push("/signin");
                         }}
                         >Log out</p>
