@@ -1,6 +1,6 @@
-import common from "@/resources/common.module.css";
-import Date from "@/app/component/Date";
-import Input from "@/app/component/Input";
+import common from "/src/resources/common.module.css";
+import Date from "/src/app/component/Date";
+import Input from "/src/app/component/Input";
 
 export default function sale() {
     return (

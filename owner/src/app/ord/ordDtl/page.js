@@ -1,6 +1,6 @@
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
-import Input from "@/app/component/Input";
+import Input from "/src/app/component/Input";
 import axios from "axios";
 
 export default function ordDtl(props) {

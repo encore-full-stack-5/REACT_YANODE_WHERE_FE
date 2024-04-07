@@ -1,6 +1,6 @@
 "use client";
 
-import framework from "@/resources/framework.module.css";
+import framework from "/src/resources/framework.module.css";
 import { useRouter } from "next/navigation";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -16,7 +16,7 @@ export default function Side() {
   const getData = async () => {
     try {
       const response = await axios.get(
-          "http://220.78.7.18:3001/owners/orders/13"
+          "http://220.78.7.18:3001/owners/orders/25"
       );
       setData(response.data);
     } catch (error) {

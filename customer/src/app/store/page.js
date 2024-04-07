@@ -1,7 +1,7 @@
 "use client"
 
-import common from "@/resources/common.module.css";
-import Input from "@/app/component/Input";
+import common from "/src/resources/common.module.css";
+import Input from "/src/app/component/Input";
 import { useEffect, useState } from 'react';
 import {useRouter} from "next/navigation";
 import axios from "axios";

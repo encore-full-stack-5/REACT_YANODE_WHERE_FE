@@ -1,4 +1,4 @@
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 
 const Textarea = ({ name, ...props}) => {
     return (

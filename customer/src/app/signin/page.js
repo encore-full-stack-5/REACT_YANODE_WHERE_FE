@@ -1,9 +1,9 @@
 "use client"
 
-import auth from "@/resources/auth.module.css";
-import userIcon from "../public/images/person.png";
-import emailIcon from "../public/images/email.png";
-import passwordIcon from "../public/images/password.png";
+import auth from "/src/resources/auth.module.css";
+import userIcon from "/public/images/person.png";
+import emailIcon from "/public/images/email.png";
+import passwordIcon from "/public/images/password.png";
 import {useState} from "react";
 import Image from 'next/image';
 import axios from "axios";

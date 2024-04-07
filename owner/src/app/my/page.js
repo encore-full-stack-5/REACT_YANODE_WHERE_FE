@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
-import common from "@/resources/common.module.css";
-import Input from "@/app/component/Input";
+import common from "/src/resources/common.module.css";
+import Input from "/src/app/component/Input";
 import Image from "next/image";
-import mycss from "@/resources/my.module.css";
+import mycss from "/src/resources/my.module.css";
 
 export default function my() {
   return (

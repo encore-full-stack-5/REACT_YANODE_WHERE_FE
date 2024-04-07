@@ -1,10 +1,10 @@
 "use client";
 
 import axios from "axios";
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
-import Input from "@/app/component/Input";
-import Textarea from "@/app/component/Textarea";
+import Input from "/src/app/component/Input";
+import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
 
 export default function store() {
@@ -15,7 +15,7 @@ export default function store() {
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/stores/7"
+        "http://220.78.7.18:3001/owners/stores/1"
       );
       setData(response.data[0]);
     } catch (error) {
