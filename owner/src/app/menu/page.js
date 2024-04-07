@@ -17,7 +17,7 @@ export default function menu() {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/products/13"
+        "http://220.78.7.18:3001/owners/products/25"
       );
       setData(response.data);
     } catch (error) {
@@ -44,6 +44,10 @@ export default function menu() {
     setMenuDtl(el);
   };
   const saveModal = (el) => {
+    setShowModal(!showModal);
+  };
+
+  const deleteModal = (el) => {
     setShowModal(!showModal);
   };
 
@@ -119,6 +123,7 @@ export default function menu() {
           menuDtl={menuDtl}
           saveModal={saveModal}
           getData={getData}
+          deleteModal={deleteModal}
         />
       )}
     </>

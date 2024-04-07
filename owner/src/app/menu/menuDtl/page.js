@@ -10,7 +10,7 @@ const obj = {
 };
 export default function menuDtl(props) {
   // props
-  const { clickModal, menuDtl, saveModal, getData } = props;
+  const { clickModal, menuDtl, saveModal, getData, deleteModal } = props;
 
   // state
   const [status, setStatus] = useState("");
@@ -78,6 +78,18 @@ export default function menuDtl(props) {
       console.log(error);
     }
   };
+  menuDtl.GDS_ID;
+  const deleteData = async (req, res) => {
+    try {
+      const response = await axios.get(
+        `http://220.78.7.18:3001/owners/products/del/${menuDtl.GDS_ID}`
+      );
+      console.log(response.data);
+      res.status(200).json(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const addOption = () => {
     const newOption = { ...obj };
@@ -120,6 +132,13 @@ export default function menuDtl(props) {
     getData();
     saveModal();
   };
+
+  const deleteMenu = async () => {
+    await deleteData();
+    getData();
+    deleteModal();
+  };
+
   useEffect(() => {
     menuStatus();
     addOption();
@@ -207,7 +226,9 @@ export default function menuDtl(props) {
                   <option value="3">숨김</option>
                 </select>
               </div>
-              <button className={common.del}>삭제</button>
+              <button className={common.del} onClick={() => deleteMenu()}>
+                삭제
+              </button>
             </div>
             <button
               className={common.sav}
