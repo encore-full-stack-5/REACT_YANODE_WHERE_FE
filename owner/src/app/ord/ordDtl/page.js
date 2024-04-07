@@ -1,6 +1,6 @@
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
-import Input from "@/app/component/Input";
+import Input from "/src/app/component/Input";
 import axios from "axios";
 
 export default function ordDtl(props) {
@@ -110,9 +110,9 @@ export default function ordDtl(props) {
                                         {/*상품 가격*/}
                                         <p>{ordDtl.GDS_PRC}</p>
                                         {/*옵션명*/}
-                                        <p>{ordDtl.OPTION_NM}</p>
+                                        <p>{ordDtl.OPTION_NM !== null ? ordDtl.OPTION_NM : "-"}</p>
                                         {/*옵션 가격*/}
-                                        <p>{ordDtl.OPTION_PRC}</p>
+                                        <p>{ordDtl.OPTION_PRC !== null ? ordDtl.OPTION_PRC : "0"}</p>
                                         {/*수량*/}
                                         <p>{ordDtl.ORD_TQTY}</p>
                                     </li>

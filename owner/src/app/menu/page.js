@@ -1,11 +1,13 @@
 "use client";
 
 import axios from "axios";
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import MenuDtl from "@/app/menu/menuDtl/page";
+import MenuDtl from "/src/app/menu/menuDtl/page";
+import {useRouter} from "next/navigation";
 export default function menu() {
+  const router = useRouter();
   // state
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +19,7 @@ export default function menu() {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/products/13"
+        "http://220.78.7.18:3001/owners/products/25"
       );
       setData(response.data);
     } catch (error) {
@@ -47,9 +49,14 @@ export default function menu() {
     setShowModal(!showModal);
   };
 
+  const deleteModal = (el) => {
+    setShowModal(!showModal);
+  };
+
   // useEffect
   useEffect(() => {
-    getData();
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+    else getData();
   }, []);
   return (
     <>
@@ -97,10 +104,10 @@ export default function menu() {
                 </div>
                 <p className={common.menuNm}>{el.GDS_NM}</p>
                 <p className={common.menuDesc}>{el.GDS_DESC}</p>
-                <div className={common.menuOpt}>
-                  <p>옵션 개수</p>
-                  <p>2</p>
-                </div>
+                {/*<div className={common.menuOpt}>*/}
+                {/*  <p>옵션 개수</p>*/}
+                {/*  <p>2</p>*/}
+                {/*</div>*/}
                 <div className={common.menuYn}>
                   <p>메뉴 상태</p>
                   <p>{menuState(el)}</p>
@@ -119,6 +126,7 @@ export default function menu() {
           menuDtl={menuDtl}
           saveModal={saveModal}
           getData={getData}
+          deleteModal={deleteModal}
         />
       )}
     </>

@@ -1,6 +1,6 @@
 'use client'
 
-import framework from '@/resources/framework.module.css';
+import framework from '/src/resources/framework.module.css';
 import {useRouter} from "next/navigation";
 import { useEffect, useState } from "react";
 

@@ -1,13 +1,15 @@
 "use client"
 
-import common from "@/resources/common.module.css";
-import Date from "@/app/component/Date";
-import Input from "@/app/component/Input";
+import common from "/src/resources/common.module.css";
+import Date from "/src/app/component/Date";
+import Input from "/src/app/component/Input";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import OrdDtl from "@/app/ord/ordDtl/page";
+import OrdDtl from "/src/app/ord/ordDtl/page";
+import {useRouter} from "next/navigation";
 
 export default function ord() {
+    const router = useRouter();
     // state
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -18,7 +20,7 @@ export default function ord() {
     const getData = async () => {
         try {
             const response = await axios.get(
-                "http://220.78.7.18:3001/owners/orders/13"
+                "http://220.78.7.18:3001/owners/orders/25"
             );
             setData(response.data);
         } catch (error) {
@@ -29,7 +31,7 @@ export default function ord() {
     // 주문상태 한글화
     const ordState = (el) => {
         const state = el.ORD_STATE;
-        if (state === 100) return "접수";
+        if (state === 100) return "접수 대기";
         else if (state === 200) return "주문";
         else if (state === 300) return "반품";
         else if (state === 400) return "교환";
@@ -45,7 +47,8 @@ export default function ord() {
 
     // useEffect
     useEffect(() => {
-        getData();
+        if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+        else getData();
     }, []);
     return (
         <>

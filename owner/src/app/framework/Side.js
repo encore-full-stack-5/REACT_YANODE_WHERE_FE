@@ -1,22 +1,22 @@
 "use client";
 
-import framework from "@/resources/framework.module.css";
+import framework from "/src/resources/framework.module.css";
 import { useRouter } from "next/navigation";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function Side() {
+  const router = useRouter();
   // state
   const [data, setData] = useState([]);
-  const router = useRouter();
-  const [status, setStatus] = useState("storeInfo");
+  const [status, setStatus] = useState("ord");
 
   // function
   // 주문 조회
   const getData = async () => {
     try {
       const response = await axios.get(
-          "http://220.78.7.18:3001/owners/orders/13"
+          "http://220.78.7.18:3001/owners/orders/25"
       );
       setData(response.data);
     } catch (error) {
@@ -31,6 +31,7 @@ export default function Side() {
 
   return (
     <>
+    {/* <button onClick={console.log(LocalStorage.getItem('OWNER_ID'))}>asfd</button> */}
       <div className={framework.sideWrap}>
         <div>
           {/* 로고 이미지 넣기 */}
@@ -62,12 +63,14 @@ export default function Side() {
           </li> */}
           <li
             onClick={() => {
-              setStatus("storeInfo");
-              router.push("/store");
+              setStatus("store");
+                (localStorage.getItem('OWNER_ID') == null)
+                    ? router.push("/auth/signin")
+                    : router.push("/store")
             }}
             className={[
               framework.side,
-              status === "storeInfo" ? framework.on : "",
+              status === "store" ? framework.on : "",
             ].join(" ")}
             id={"store"}
           >
@@ -76,52 +79,54 @@ export default function Side() {
           <li
             onClick={() => {
               setStatus("menu");
-              router.push("/menu");
+              (localStorage.getItem('OWNER_ID') == null)
+                  ? router.push("/auth/signin")
+                  : router.push("/menu")
             }}
             className={[
               framework.side,
               status === "menu" ? framework.on : "",
             ].join(" ")}
-            id={"menu"}
           >
             메뉴 등록
           </li>
           <li
             onClick={() => {
               setStatus("ord");
-              router.push("/ord");
+              (localStorage.getItem('OWNER_ID') == null)
+                  ? router.push("/auth/signin")
+                  : router.push("/ord")
             }}
             className={[
               framework.side,
               status === "ord" ? framework.on : "",
             ].join(" ")}
-            id={"ord"}
           >
             주문 접수<span>{data.filter(el => el.ORD_STATE === 100).length}</span>
           </li>
-          <li
-            onClick={() => {
-              setStatus("sale");
-              router.push("/sale");
-            }}
-            className={[
-              framework.side,
-              status === "sale" ? framework.on : "",
-            ].join(" ")}
-            id={"sale"}
-          >
-            매출 조회
-          </li>
+          {/*<li*/}
+          {/*  onClick={() => {*/}
+          {/*    setStatus("sale");*/}
+          {/*    onClickMenu();*/}
+          {/*  }}*/}
+          {/*  className={[*/}
+          {/*    framework.side,*/}
+          {/*    status === "sale" ? framework.on : "",*/}
+          {/*  ].join(" ")}*/}
+          {/*>*/}
+          {/*  매출 조회*/}
+          {/*</li>*/}
           <li
             onClick={() => {
               setStatus("my");
-              router.push("/my");
+              (localStorage.getItem('OWNER_ID') == null)
+                  ? router.push("/auth/signin")
+                  : router.push("/my")
             }}
             className={[
               framework.side,
               status === "my" ? framework.on : "",
             ].join(" ")}
-            id={"my"}
           >
             내 정보
           </li>
@@ -129,7 +134,16 @@ export default function Side() {
         <div className={framework.logoutWrap}>
           <button className={framework.logout}>
             {/* 로그아웃 이미지 자리 */}
-            <p>Log out</p>
+            <p
+              onClick={() => {
+                alert("로그아웃이 완료되었습니다.");
+                localStorage.removeItem('OWNER_ID');
+                router.replace("/");
+                setStatus("ord");
+              }}
+            >
+              Log out
+            </p>
           </button>
         </div>
       </div>

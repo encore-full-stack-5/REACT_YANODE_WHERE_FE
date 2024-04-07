@@ -1,16 +1,18 @@
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import axios from "axios";
 import Image from "next/image";
-import Input from "@/app/component/Input";
-import Textarea from "@/app/component/Textarea";
+import Input from "/src/app/component/Input";
+import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
+import {useRouter} from "next/navigation";
 const obj = {
   name: "",
   price: "",
 };
 export default function menuDtl(props) {
+  const router = useRouter();
   // props
-  const { clickModal, menuDtl, saveModal, getData } = props;
+  const { clickModal, menuDtl, saveModal, getData, deleteModal } = props;
 
   // state
   const [status, setStatus] = useState("");
@@ -78,6 +80,17 @@ export default function menuDtl(props) {
       console.log(error);
     }
   };
+  const deleteData = async (req, res) => {
+    try {
+      const response = await axios.get(
+        `http://220.78.7.18:3001/owners/products/del/${menuDtl.GDS_ID}`
+      );
+      console.log(response.data);
+      res.status(200).json(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const addOption = () => {
     const newOption = { ...obj };
@@ -110,19 +123,24 @@ export default function menuDtl(props) {
   };
 
   const clickSave = async () => {
-    await putData();
+    const saveData = menuDtl.GDS_ID === undefined ? postData : putData;
+    await saveData();
     getData();
     saveModal();
   };
 
-  const clickPostSave = async () => {
-    await postData();
+  const deleteMenu = async () => {
+    await deleteData();
     getData();
-    saveModal();
+    deleteModal();
   };
+
   useEffect(() => {
-    menuStatus();
-    addOption();
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+    else {
+      menuStatus();
+      addOption();
+    }
   }, []);
 
   return (
@@ -143,17 +161,22 @@ export default function menuDtl(props) {
               </div>
             </div>
             <Input
+              maxLength="29"
               id={"menuName"}
               name={"메뉴명"}
               type={"text"}
               defaultValue={menuDtl.GDS_NM}
             />
             <Textarea
+              maxLength="254"
               id={"menuDescision"}
               name={"메뉴설명"}
               defaultValue={menuDtl.GDS_DESC}
             />
             <Input
+              onInput={(e) => {
+                e.target.value = e.target.value.slice(0, 20);
+              }}
               id={"menuPrice"}
               name={"메뉴가격"}
               type={"number"}
@@ -169,6 +192,7 @@ export default function menuDtl(props) {
                     <button onClick={() => deleteOption(index)}>삭제</button>
                   </div>
                   <input
+                    maxLength="19"
                     type="text"
                     className={common.inpt}
                     placeholder="옵션명"
@@ -177,6 +201,9 @@ export default function menuDtl(props) {
                     onChange={(e) => onChange(e, index)}
                   />
                   <input
+                    onInput={(e) => {
+                    e.target.value = e.target.value.slice(0, 20);
+                    }}
                     type="number"
                     className={common.inpt}
                     placeholder="옵션 가격"
@@ -207,20 +234,11 @@ export default function menuDtl(props) {
                   <option value="3">숨김</option>
                 </select>
               </div>
-              <button className={common.del}>삭제</button>
+              <button className={common.del} onClick={() => deleteMenu()}>
+                삭제
+              </button>
             </div>
-            <button
-              className={common.sav}
-              onClick={
-                menuDtl.GDS_ID !== undefined
-                  ? () => {
-                      clickSave();
-                    }
-                  : () => {
-                      clickPostSave();
-                    }
-              }
-            >
+            <button className={common.sav} onClick={clickSave}>
               저장
             </button>
           </div>

@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image";
-import common from "@/resources/common.module.css";
-import Input from "@/app/component/Input";
+import common from "/src/resources/common.module.css";
+import Input from "/src/app/component/Input";
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
-import MenuDtl from "@/app/store/menu/menuDtl/page";
+import MenuDtl from "/src/app/store/menu/menuDtl/page";
 
 export default function storeMenu() {
     const [shopData, setShopData] = useState();

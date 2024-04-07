@@ -8,6 +8,10 @@
     height: 100%;
     float: right;
     padding: 20px;
+    &:has(.lgn) {
+      width: 100%;
+      position: absolute;
+    }
     .pageTitleWrap {
       width: 100%;
       @include flexJustifyBetween;
@@ -139,7 +143,7 @@
       overflow: auto;
       .menu {
         width: calc((100% - 60px) / 4);
-        height: 325px;
+        height: 300px;
         background-color: #FFFFFF;
         border-radius: 12px;
         margin: {

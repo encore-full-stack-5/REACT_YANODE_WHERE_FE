@@ -1,21 +1,19 @@
 "use client";
 
 import axios from "axios";
-import common from "@/resources/common.module.css";
+import common from "/src/resources/common.module.css";
 import Image from "next/image";
-import Input from "@/app/component/Input";
-import Textarea from "@/app/component/Textarea";
+import Input from "/src/app/component/Input";
+import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
 
 export default function store() {
   // state
   const [data, setData] = useState();
-
-  // function
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/stores/7"
+        "http://220.78.7.18:3001/owners/stores/1"
       );
       setData(response.data[0]);
     } catch (error) {
@@ -25,7 +23,8 @@ export default function store() {
 
   // useEffect
   useEffect(() => {
-    getdata();
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+    else getdata();
   }, []);
 
   return (
@@ -43,6 +42,7 @@ export default function store() {
             </div>
             <div className={common.storeInptWrap}>
               <Input
+                maxLength="29"
                 name={"업종"}
                 type={"text"}
                 defaultValue={data ? data.CTGRY : ""}
@@ -50,12 +50,14 @@ export default function store() {
               <div className={common.inptWrap}>
                 <label>위치</label>
                 <input
+                  maxLength="99"
                   type="text"
                   className={common.inpt}
                   placeholder={"기본 주소"}
                   defaultValue={data ? data.BSC_ADDR : ""}
                 />
                 <input
+                  maxLength="99"
                   type="text"
                   className={common.inpt}
                   placeholder={"상세 주소"}
@@ -63,6 +65,7 @@ export default function store() {
                 />
               </div>
               <Input
+                maxLength="29"
                 name={"가게 이름"}
                 type={"type"}
                 defaultValue={data ? data.SHOP_NM : ""}
@@ -72,6 +75,7 @@ export default function store() {
           <div className={common.storeLayout}>
             <div className={common.storeInptWrap}>
               <Textarea
+                maxLength="254"
                 name={"가게 설명"}
                 defaultValue={data ? data.SHOP_DESC : ""}
               />
@@ -98,6 +102,9 @@ export default function store() {
                   type={"number"}
                   placeholder={"숫자만 입력"}
                   defaultValue={data ? data.TELNO : ""}
+                  onInput={(e) => {
+                    e.target.value = e.target.value.slice(0, 11);
+                  }}
                 />
               </div>
             </div>
