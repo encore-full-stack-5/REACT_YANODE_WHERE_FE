@@ -15,7 +15,7 @@ export default function store() {
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/stores/7"
+        "http://220.78.7.18:3001/owners/stores/1"
       );
       setData(response.data[0]);
     } catch (error) {
@@ -37,9 +37,14 @@ export default function store() {
         </div>
         <div className={common.storeContent}>
           <div className={common.storeLayout}>
-            <div className={common.storeImg}>
+            <div className={common.storeImg} style={{ overflow: "hidden" }}>
               {/*<input type="file"/>*/}
-              <Image src={""} alt={"가게 사진"} />
+              <Image
+                src={"/images/flowerStore.png"}
+                width={800}
+                height={800}
+                alt={"가게 사진"}
+              />
             </div>
             <div className={common.storeInptWrap}>
               <Input
