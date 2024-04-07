@@ -4,11 +4,13 @@ import Image from "next/image";
 import Input from "/src/app/component/Input";
 import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
+import {useRouter} from "next/navigation";
 const obj = {
   name: "",
   price: "",
 };
 export default function menuDtl(props) {
+  const router = useRouter();
   // props
   const { clickModal, menuDtl, saveModal, getData, deleteModal } = props;
 
@@ -134,8 +136,11 @@ export default function menuDtl(props) {
   };
 
   useEffect(() => {
-    menuStatus();
-    addOption();
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+    else {
+      menuStatus();
+      addOption();
+    }
   }, []);
 
   return (

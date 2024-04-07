@@ -1,8 +1,7 @@
 /* root */
 @font-face {
   font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -16,12 +15,12 @@
   width: 5px;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: #ccd1d7;
+  background-color: #CCD1D7;
   width: 5px;
   border-radius: 2.5px;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #adb4ba;
+  background-color: #ADB4BA;
 }
 
 html,
@@ -50,10 +49,10 @@ textarea {
 input,
 select,
 textarea {
-  border: 2px solid #e6e8eb;
+  border: 2px solid #E6E8EB;
   height: 40px;
   border-radius: 14px;
-  outline-color: #adb4ba;
+  outline-color: #ADB4BA;
 }
 
 input {
@@ -70,7 +69,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="number"] {
+input[type=number] {
   -moz-appearance: textfield;
 }
 

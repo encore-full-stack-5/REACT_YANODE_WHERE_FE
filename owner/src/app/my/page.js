@@ -4,8 +4,17 @@ import common from "/src/resources/common.module.css";
 import Input from "/src/app/component/Input";
 import Image from "next/image";
 import mycss from "/src/resources/my.module.css";
+import {useRouter} from "next/navigation";
+import {useEffect} from "react";
 
 export default function my() {
+  const router = useRouter();
+
+  // useEffect
+  useEffect(() => {
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+  }, []);
+
   return (
     <>
       <div className={common.pageTitleWrap}>

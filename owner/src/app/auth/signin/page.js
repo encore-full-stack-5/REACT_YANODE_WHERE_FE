@@ -1,20 +1,21 @@
 "use client"
 
-import userIcon from "../../../../public/images/person.png";
-import emailIcon from "../../../../public/images/email.png";
-import passwordIcon from "../../../../public/images/password.png";
+import userIcon from "/public/images/person.png";
+import emailIcon from "/public/images/email.png";
+import passwordIcon from "/public/images/password.png";
 import { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import LocalStorage from "../../local/page";
-import auth from "../../../resources/auth.module.css";
-import common from "../../../resources/common.module.css";
+import LocalStorage from "/src/app/local/page";
+import auth from "/src/resources/auth.module.css";
+import common from "/src/resources/common.module.css";
 
 export default function signin() {
+  const router = useRouter();
+  // state
   const [action, setAction] = useState("Login");
   const [data, setData] = useState();
-  const router = useRouter();
 
   const clickLogin = async () => {
     if (action === "Login") {

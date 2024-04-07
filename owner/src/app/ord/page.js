@@ -6,8 +6,10 @@ import Input from "/src/app/component/Input";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import OrdDtl from "/src/app/ord/ordDtl/page";
+import {useRouter} from "next/navigation";
 
 export default function ord() {
+    const router = useRouter();
     // state
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -45,7 +47,8 @@ export default function ord() {
 
     // useEffect
     useEffect(() => {
-        getData();
+        if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+        else getData();
     }, []);
     return (
         <>

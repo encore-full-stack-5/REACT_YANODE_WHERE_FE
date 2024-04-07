@@ -6,8 +6,10 @@ import Image from "next/image";
 import Input from "/src/app/component/Input";
 import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function store() {
+  const router = useRouter();
   // state
   const [data, setData] = useState();
   const getdata = async () => {
@@ -23,7 +25,8 @@ export default function store() {
 
   // useEffect
   useEffect(() => {
-    getdata();
+    if(localStorage.getItem('OWNER_ID') == null) return router.replace("/auth/signin");
+    else getdata();
   }, []);
 
   return (
