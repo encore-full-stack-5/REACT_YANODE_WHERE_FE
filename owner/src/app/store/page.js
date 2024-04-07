@@ -6,10 +6,8 @@ import Image from "next/image";
 import Input from "/src/app/component/Input";
 import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function store() {
-  const router = useRouter();
   // state
   const [data, setData] = useState();
   const getdata = async () => {
@@ -38,14 +36,9 @@ export default function store() {
         </div>
         <div className={common.storeContent}>
           <div className={common.storeLayout}>
-            <div className={common.storeImg} style={{ overflow: "hidden" }}>
+            <div className={common.storeImg}>
               {/*<input type="file"/>*/}
-              <Image
-                src={"/images/flowerStore.png"}
-                width={800}
-                height={800}
-                alt={"가게 사진"}
-              />
+              <Image src={""} alt={"가게 사진"} />
             </div>
             <div className={common.storeInptWrap}>
               <Input
