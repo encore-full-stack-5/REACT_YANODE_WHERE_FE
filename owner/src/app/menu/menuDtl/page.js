@@ -48,6 +48,37 @@ export default function menuDtl(props) {
     }
   };
 
+  const postData = async (req, res) => {
+    let soldOut = 0;
+    let exposure = 1;
+    if (status === "2") {
+      soldOut = 1;
+      exposure = 1;
+    } else if (status === "3") {
+      soldOut = 0;
+      exposure = 0;
+    }
+    try {
+      const response = await axios.post(
+        "http://220.78.7.18:3001/owners/products",
+        {
+          data: [
+            "25",
+            document.getElementById("menuName").value,
+            document.getElementById("menuDescision").value,
+            document.getElementById("menuPrice").value,
+            soldOut,
+            exposure,
+          ],
+        }
+      );
+      console.log(response.data);
+      res.status(200).json(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const addOption = () => {
     const newOption = { ...obj };
     setOption([...option, newOption]);
@@ -84,6 +115,11 @@ export default function menuDtl(props) {
     saveModal();
   };
 
+  const clickPostSave = async () => {
+    await postData();
+    getData();
+    saveModal();
+  };
   useEffect(() => {
     menuStatus();
     addOption();
@@ -175,9 +211,15 @@ export default function menuDtl(props) {
             </div>
             <button
               className={common.sav}
-              onClick={() => {
-                clickSave();
-              }}
+              onClick={
+                menuDtl.GDS_ID !== undefined
+                  ? () => {
+                      clickSave();
+                    }
+                  : () => {
+                      clickPostSave();
+                    }
+              }
             >
               저장
             </button>
