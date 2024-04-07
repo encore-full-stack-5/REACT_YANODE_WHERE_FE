@@ -15,6 +15,8 @@ export default function storeMenu() {
     const shop_id = useSearchParams().get("shop_id");
     const router = useRouter();
 
+const noww = new Date();
+
     const getShopData = async () => {
         try {
             const response = await axios.get("http://220.78.7.18:3001/users/stores/"+shop_id);
@@ -153,6 +155,7 @@ export default function storeMenu() {
                 <MenuDtl
                 clickMenuDtl={clickMenuDtl}
                 menuDtl={productData[showMenuDtl]}
+                shopId={shop_id}
                 />
             }
         </>
