@@ -18,7 +18,7 @@ export default function ord() {
     const getData = async () => {
         try {
             const response = await axios.get(
-                "http://220.78.7.18:3001/owners/orders/13"
+                "http://220.78.7.18:3001/owners/orders/25"
             );
             setData(response.data);
         } catch (error) {
@@ -29,7 +29,7 @@ export default function ord() {
     // 주문상태 한글화
     const ordState = (el) => {
         const state = el.ORD_STATE;
-        if (state === 100) return "접수";
+        if (state === 100) return "접수 대기";
         else if (state === 200) return "주문";
         else if (state === 300) return "반품";
         else if (state === 400) return "교환";
