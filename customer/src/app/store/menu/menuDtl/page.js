@@ -10,7 +10,7 @@ const obj = {
 };
 export default function menuDtl(props) {
   // props
-  const { clickMenuDtl, menuDtl, shopId} = props;
+  const { clickMenuDtl, menuDtl, shopId } = props;
 
   // state
   const [optionData, setOptionData] = useState();
@@ -25,13 +25,13 @@ export default function menuDtl(props) {
     } catch (error) {
       alert("조회 에러");
     }
-  }
+  };
 
   const createOrder = async (arr) => {
     const custId = localStorage.getItem("CUST_ID");
     const custNm = localStorage.getItem("CUST_NM");
     const lgnId = localStorage.getItem("LGN_ID");
-    const qty = (Number) (document.getElementById("menuQty").value);
+    const qty = Number(document.getElementById("menuQty").value);
     try {
       //주문생성
       const response = await axios.post(
@@ -51,29 +51,28 @@ export default function menuDtl(props) {
             4, // '"RCVR_DTL_ADDR", '+
             5, // '"WBILL_NO",'+
             10,
-            lgnId
+            lgnId,
           ],
           orderProductData: [
             [
               menuDtl.GDS_ID, //GDS_ID
               menuDtl.GDS_NM,
               menuDtl.GDS_PRC,
-              qty
+              qty,
             ],
           ],
-          orderOptionData: []
+          orderOptionData: [],
         }
       );
       console.log(response);
-
     } catch (error) {
       alert("오류 발생");
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getOption()
+    getOption();
   }, []);
 
   return (
@@ -114,47 +113,42 @@ export default function menuDtl(props) {
               readOnly
             />
             <div className={common.inptWrap}>
-
-              {optionData?optionData.map((e,i) => 
-                <div
-                  key={i}
-                  className={common.optionWrap}>
-                  <div className={common.deleteOption}>
-                    <label>
-                      메뉴 옵션<span className={common.num}>{i+1}</span>
-                    </label>
-                  </div>
-                  <input
-                    type="text"
-                    className={common.inpt}
-                    placeholder="옵션명"
-                    defaultValue={e.OPTION_NM}
-                    name="title"
-                  />
-                  <input
-                    type="number"
-                    className={common.inpt}
-                    placeholder="옵션 가격"
-                    defaultValue={e.OPTION_PRC}
-                    name="price"
-                  />
-                </div>
-              ):""}
-
+              {optionData
+                ? optionData.map((e, i) => (
+                    <div key={i} className={common.optionWrap}>
+                      <div className={common.deleteOption}>
+                        <label>
+                          메뉴 옵션<span className={common.num}>{i + 1}</span>
+                        </label>
+                      </div>
+                      <input
+                        type="text"
+                        className={common.inpt}
+                        placeholder="옵션명"
+                        defaultValue={e.OPTION_NM}
+                        name="title"
+                      />
+                      <input
+                        type="number"
+                        className={common.inpt}
+                        placeholder="옵션 가격"
+                        defaultValue={e.OPTION_PRC}
+                        name="price"
+                      />
+                    </div>
+                  ))
+                : ""}
             </div>
           </div>
           <div className={common.menuSet}>
-            <Input 
+            <Input
               id={"menuQty"}
               name={"수량"}
               type={"number"}
               defaultValue={1}
             />
-            <button
-              className={common.sav}
-              onClick={() => createOrder([])}
-            >
-              {menuDtl.GDS_SOLDOUT_YN==1? "품절" : "주문 하기"}
+            <button className={common.sav} onClick={() => createOrder([])}>
+              {menuDtl.GDS_SOLDOUT_YN == 1 ? "품절" : "주문 하기"}
             </button>
           </div>
         </div>
