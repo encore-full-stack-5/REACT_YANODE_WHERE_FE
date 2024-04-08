@@ -36,7 +36,10 @@ export default function my() {
               ]
             }
         );
+        localStorage.setItem("CUST_NM", document.getElementById("cname").value);
         console.log(response.data);
+        alert(response.data == "고객 정보 수정 성공" ? "정보가 수정되었습니다." : "정보를 수정하는데 실패했습니다.");
+        location.href = location.origin+"/my";
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +55,10 @@ export default function my() {
 
       <div className={common.pageTitleWrap}>
         <h2 className={mycss.pagetitle}>내 정보</h2>
-        <button className={common.pageBtn}>수정</button>
+        <button 
+          className={common.pageBtn}
+          onClick={() => setdata()}
+        >수정</button>
       </div>
 
       <div className={mycss.storeContent}>

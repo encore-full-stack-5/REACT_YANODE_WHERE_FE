@@ -29,7 +29,8 @@ export default function signin() {
                     localStorage.setItem("CUST_ID", response.data.CUST_ID);
                     localStorage.setItem("LGN_ID", response.data.LGN_ID);
                     localStorage.setItem("CUST_NM", response.data.CUST_NM);
-                    router.push("/store");
+                    // router.push("/store");
+                    location.href = location.origin+"/store";
                 } else alert("아이디 및 비밀번호를 다시 확인하세요.");
             } catch (e) {
                 console.log(e);

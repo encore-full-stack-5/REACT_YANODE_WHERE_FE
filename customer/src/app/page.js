@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/");
+    localStorage.getItem("CUST_ID") ? router.push("/store") : router.push("/signin");
   }, []);
   return (
       <>

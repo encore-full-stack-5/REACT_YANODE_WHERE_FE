@@ -69,7 +69,7 @@ export default function Side() {
                             localStorage.removeItem("LGN_ID");
                             localStorage.removeItem("CUST_NM");
                             // router.push("/signin");
-                            location.origin+"/store".herf;
+                            location.href = location.origin+"/signin";
                         }}
                         >Log out</p>
                     </button>
