@@ -15,7 +15,7 @@ export default function ordDtl(props) {
     const getdata = async () => {
         try {
             const response = await axios.get(
-                "http://220.78.7.18:3001/users/orders/"+ord_id+"/details"
+                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details"
             );
             setData(response.data[0]);
         } catch (error) {

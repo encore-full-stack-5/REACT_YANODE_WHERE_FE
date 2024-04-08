@@ -19,7 +19,7 @@ export default function menuDtl(props) {
   const getOption = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/users/products/menu/" + menuDtl.GDS_ID
+        "http://192.168.80.39:3001/users/products/menu/" + menuDtl.GDS_ID
       );
       setOptionData(response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ export default function menuDtl(props) {
     try {
       //주문생성
       const response = await axios.post(
-        "http://220.78.7.18:3001/users/orders/new",
+        "http://192.168.80.39:3001/users/orders/new",
         {
           orderData: [
             custId,

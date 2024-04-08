@@ -19,7 +19,7 @@ export default function signin() {
                 const email = document.getElementById("account").value;
                 const password = document.getElementById("password").value;
                 const response = await axios.post(
-                    "http://220.78.7.18:3001/users/login",
+                    "http://192.168.80.39:3001/users/login",
                     {
                         lgn_id: email,
                         passwd: password,

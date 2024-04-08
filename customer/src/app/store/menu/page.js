@@ -19,7 +19,7 @@ const noww = new Date();
 
     const getShopData = async () => {
         try {
-            const response = await axios.get("http://220.78.7.18:3001/users/stores/"+shop_id);
+            const response = await axios.get("http://192.168.80.39:3001/users/stores/"+shop_id);
             setShopData(response.data[0]);
         } catch (error) {
             console.log(error);
@@ -28,7 +28,7 @@ const noww = new Date();
     }
     const getProductData = async () => {
         try {
-            const response = await axios.get("http://220.78.7.18:3001/users/products/"+shop_id);
+            const response = await axios.get("http://192.168.80.39:3001/users/products/"+shop_id);
             console.log(response.data)
             setProductData(response.data);
         } catch (error) {

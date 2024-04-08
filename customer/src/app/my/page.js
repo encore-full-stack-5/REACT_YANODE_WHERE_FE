@@ -11,7 +11,7 @@ export default function my() {
   const getdata = async () => {
       try {
           const response = await axios.get(
-              "http://220.78.7.18:3001/users/profile/11"//+localStorage.getItem("CUST_ID")
+              "http://192.168.80.39:3001/users/profile/11"//+localStorage.getItem("CUST_ID")
           );
           console.log(response.data);
           setData(response.data[0]);
@@ -22,7 +22,7 @@ export default function my() {
   const setdata = async () => {
     try {
         const response = await axios.post(
-            "http://220.78.7.18:3001/users/edit",
+            "http://192.168.80.39:3001/users/edit",
             {
               data:[
                 localStorage.getItem("CUST_ID"),

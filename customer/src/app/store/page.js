@@ -12,7 +12,7 @@ export default function menu() {
 
     const getdata = async () => {
         try {
-            const response = await axios.get("http://220.78.7.18:3001/users/stores/all/10");
+            const response = await axios.get("http://192.168.80.39:3001/users/stores/all/10");
             setData(response.data);
             console.log(response.data);
         } catch (error) {

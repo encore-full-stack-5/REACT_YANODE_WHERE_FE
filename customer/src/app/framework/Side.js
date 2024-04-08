@@ -9,7 +9,6 @@ export default function Side() {
     const [cust_id, setId] = useState();
     const [status, setStatus] = useState("store");
 
-
     useEffect(() => {
         setId(localStorage.getItem("CUST_ID"));
     },[cust_id]);
@@ -69,7 +68,8 @@ export default function Side() {
                             localStorage.removeItem("CUST_ID");
                             localStorage.removeItem("LGN_ID");
                             localStorage.removeItem("CUST_NM");
-                            router.push("/signin");
+                            // router.push("/signin");
+                            location.origin+"/store".herf;
                         }}
                         >Log out</p>
                     </button>
