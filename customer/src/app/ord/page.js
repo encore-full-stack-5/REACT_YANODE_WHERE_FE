@@ -9,7 +9,7 @@ import OrdDtl from "/src/app/ord/ordDtl/page";
 
 export default function ord() {
     const [data, setData] = useState([]);
-    const [showOrdId, setShowOrdId] = useState(0);
+    const [showOrdId, setShowOrdId] = useState("");
 
     const getdata = async () => {
         try {
@@ -24,7 +24,7 @@ export default function ord() {
       };
 
     const clickOrd = () => {
-        setShowOrdId(showOrdId ? 0 : data[0].ORD_ID);
+        setShowOrdId(showOrdId ? "" : data[0].ORD_ID);
     };
     
     // useEffect
@@ -112,7 +112,7 @@ export default function ord() {
                 </div>
             </div>
 
-            {showOrdId == 0 ? "" : <OrdDtl  clickOrd={clickOrd} ord_id={showOrdId}/>}
+            {showOrdId && <OrdDtl  clickOrd={clickOrd} ord_id={showOrdId}/>}
         </>
     )
 }

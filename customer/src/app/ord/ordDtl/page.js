@@ -25,7 +25,7 @@ export default function ordDtl(props) {
     const getOptionData = async () => {
         try {
             const response = await axios.get(
-                "http://220.78.7.18:3001/users/orders/"+ord_id+"/details/options"
+                "http://192.168.80.39:3001/users/orders/"+ord_id+"/details/options"
             );
             console.log(response.data);
             setDataOpt(response.data);
