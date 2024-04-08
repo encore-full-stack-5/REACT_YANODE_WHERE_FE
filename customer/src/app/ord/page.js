@@ -112,7 +112,7 @@ export default function ord() {
                 </div>
             </div>
 
-            {showOrdId && <OrdDtl  clickOrd={clickOrd} ord_id={showOrdId}/>}
+            {showOrdId == 0 ? "" : <OrdDtl  clickOrd={clickOrd} ord_id={showOrdId}/>}
         </>
     )
 }
