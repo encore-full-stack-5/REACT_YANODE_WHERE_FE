@@ -11,25 +11,24 @@ export default function ord() {
     const [data, setData] = useState([]);
     const [showOrdId, setShowOrdId] = useState("");
 
-    const getdata = async () => {
+    const getData = async () => {
         try {
           const response = await axios.get(
             "http://192.168.80.39:3001/users/orders/"+localStorage.getItem("CUST_ID")
           );
-          console.log(response.data);
           setData(response.data);
         } catch (error) {
           alert("조회 에러");
         }
-      };
+    };
 
     const clickOrd = () => {
         setShowOrdId(showOrdId ? "" : data[0].ORD_ID);
     };
-    
+
     // useEffect
     useEffect(() => {
-        getdata();
+        getData();
     }, []);
 
     return (
@@ -57,11 +56,11 @@ export default function ord() {
                                 {/*주문ID*/}
                                 <p>{e.ORD_ID}</p>
                                 {/*상품이름*/}
-                                <p>{e.GDS_NM}</p>
+                                <p title={e.GDS_NM}>{e.GDS_NM}</p>
                                 {/*수량*/}
                                 <p>{e.ORD_TQTY}</p>
                                 {/*가격*/}
-                                <p>{e.ORD_TPRC}</p>
+                                <p>{e.ORD_TPRC.toLocaleString("ko-KR")}</p>
                                 {/*매장이름*/}
                                 <p>{e.SHOP_NM}</p>
                                 {/*상태*/}

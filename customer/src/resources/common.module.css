@@ -375,7 +375,7 @@
 }
 .container .content .ordTableWrap .ordTableHead p,
 .container .content .ordTableWrap .ordTable .ordList p {
-  width: 14.2857142857%;
+  width: calc(100% / 9);
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 0.9rem;
@@ -383,11 +383,18 @@
 }
 .container .content .ordTableWrap .ordTableHead p:nth-child(2),
 .container .content .ordTableWrap .ordTable .ordList p:nth-child(2) {
-  width: 42.8571428571%;
+  width: calc((100% / 9) * 3);
 }
-.container .content .ordTableWrap .ordTableHead p:nth-child(4),
 .container .content .ordTableWrap .ordTable .ordList p:nth-child(4) {
-  width: 28.5714285714%;
+  text-align: right !important;
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(5),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(5) {
+  width: calc((100% / 9) * 2);
+}
+.container .content .ordTableWrap .ordTableHead p:nth-child(6),
+.container .content .ordTableWrap .ordTable .ordList p:nth-child(6) {
+  text-align: center;
 }
 .container .content .ordTableWrap .ordTableHead p:last-child,
 .container .content .ordTableWrap .ordTable .ordList p:last-child {
@@ -638,7 +645,7 @@
 }
 .container .content .popupContainer .popupContent {
   background-color: #FFFFFF;
-  height: 80%;
+  max-height: 80%;
   border-radius: 20px;
   position: absolute;
   left: 50%;

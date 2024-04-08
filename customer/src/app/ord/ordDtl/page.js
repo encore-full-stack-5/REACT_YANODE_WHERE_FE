@@ -12,7 +12,7 @@ export default function ordDtl(props) {
     const [data, setData] = useState([]);
     const [dataOpt, setDataOpt] = useState([]);
 
-    const getdata = async () => {
+    const getData = async () => {
         try {
             const response = await axios.get(
                 "http://192.168.80.39:3001/users/orders/"+ord_id+"/details"
@@ -21,6 +21,23 @@ export default function ordDtl(props) {
         } catch (error) {
         }
     };
+    const putData = async (req, res) => {
+        try {
+            const response = await axios.put(
+                "http://192.168.80.39:3001/users/orders/status",
+                {
+                    data: [
+                        data.ORD_GDS_ID,
+                        data.ORD_STATE = 600
+                    ]
+                }
+            );
+            console.log(response.data);
+            res.status(200).json(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const getOptionData = async () => {
         try {
@@ -35,7 +52,7 @@ export default function ordDtl(props) {
     };
 
     useEffect(() => {
-        getdata();
+        getData();
         getOptionData();
     }, []);
 
@@ -123,9 +140,9 @@ export default function ordDtl(props) {
                                             {/*상품 가격*/}
                                             <p>{e.GDS_PRC}</p>
                                             {/*옵션명*/}
-                                            <p>{e.OPTION_NM}</p>
+                                            <p>{e.OPTION_NM !== null ? e.OPTION_NM : "-"}</p>
                                             {/*옵션 가격*/}
-                                            <p>{e.OPTION_PRC}</p>
+                                            <p>{e.OPTION_PRC !== null ? e.OPTION_PRC : "0"}</p>
                                             {/*수량*/}
                                             <p>{e.GDS_QTY}</p>
                                         </li>
@@ -165,7 +182,7 @@ export default function ordDtl(props) {
 
                             </div>
                         </div>
-                        <button className={common.ordBtn}>주문 취소</button>
+                        <button className={common.ordBtn} onClick={putData}>주문 취소</button>
                     </div>
                 </div>
             </div>

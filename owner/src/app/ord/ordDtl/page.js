@@ -32,6 +32,7 @@ export default function ordDtl(props) {
 
     return (
         <>
+            {console.log(data)}
             <div>
                 <div className={common.popupContainer}>
                     <div className={common.popupContent} style={{ width: '80%'}}>

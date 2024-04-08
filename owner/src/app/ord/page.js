@@ -36,7 +36,8 @@ export default function ord() {
         else if (state === 300) return "반품";
         else if (state === 400) return "교환";
         else if (state === 500) return "환불";
-        else if (state === 600) return "반려";
+        else if (state === 600) return "취소";
+        else if (state === 700) return "반려";
     };
 
     // 주문상세 팝업
