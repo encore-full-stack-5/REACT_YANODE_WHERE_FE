@@ -23,7 +23,7 @@ export default function signin() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const response = await axios.post(
-          "http://220.78.7.18:3001/owners/login",
+          "http://192.168.80.39:3001/owners/login",
           {
             lgn_id: email,
             passwd: password,
@@ -31,6 +31,7 @@ export default function signin() {
         );
         if (response.data !== false) {
           LocalStorage.setItem('OWNER_ID', response.data.OWNER_ID);
+          LocalStorage.setItem('OWNER_NM', response.data.OWNER_NM);
           router.push("/ord");
         } else alert("아이디 및 비밀번호를 다시 확인하세요.");
       } catch (error) {

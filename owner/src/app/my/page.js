@@ -14,7 +14,7 @@ export default function my() {
   const getdata = async () => {
     try {
       const response = await axios.get(
-        `http://220.78.7.18:3001/owners/profile/${localStorage.getItem('OWNER_ID')}`
+        `http://192.168.80.39:3001/owners/profile/${localStorage.getItem('OWNER_ID')}`
       );
       setData(response.data);
     } catch (error) {

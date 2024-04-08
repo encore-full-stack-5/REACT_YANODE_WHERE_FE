@@ -11,7 +11,7 @@ export default function ordDtl(props) {
     const putData = async (req, res) => {
         try {
             const response = await axios.put(
-                "http://220.78.7.18:3001/owners/orders/status",
+                "http://192.168.80.39:3001/owners/orders/status",
                 {
                     data: [
                         ordDtl.ORD_GDS_ID,

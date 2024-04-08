@@ -20,7 +20,7 @@ export default function ord() {
     const getData = async () => {
         try {
             const response = await axios.get(
-                "http://220.78.7.18:3001/owners/orders/25"
+                "http://192.168.80.39:3001/owners/orders/25"
             );
             setData(response.data);
         } catch (error) {
