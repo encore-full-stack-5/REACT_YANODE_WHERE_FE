@@ -6,14 +6,16 @@ import Image from "next/image";
 import Input from "/src/app/component/Input";
 import Textarea from "/src/app/component/Textarea";
 import { useEffect, useState } from "react";
+import {useRouter} from "next/navigation";
 
 export default function store() {
+  const router = useRouter();
   // state
   const [data, setData] = useState();
   const getdata = async () => {
     try {
       const response = await axios.get(
-        "http://220.78.7.18:3001/owners/stores/1"
+        "http://192.168.80.39:3001/owners/stores/1"
       );
       setData(response.data[0]);
     } catch (error) {

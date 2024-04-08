@@ -16,7 +16,7 @@ export default function Side() {
   const getData = async () => {
     try {
       const response = await axios.get(
-          "http://220.78.7.18:3001/owners/orders/25"
+          "http://192.168.80.39:3001/owners/orders/25"
       );
       setData(response.data);
     } catch (error) {
@@ -40,9 +40,9 @@ export default function Side() {
           </p>
           <div className={framework.userInfo}>
             <p className={framework.userNm}>
-              <b>야노드</b>님
+              <b>{localStorage.getItem('OWNER_NM')}</b>님
             </p>
-            <p className={framework.userId}>yanode00</p>
+            <p className={framework.userId}>{localStorage.getItem('LGN_ID')}</p>
           </div>
         </div>
 
