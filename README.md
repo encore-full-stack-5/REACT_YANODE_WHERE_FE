@@ -1,4 +1,4 @@
-# 재래시장 배달서비스
+![image (10)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/3cedcd46-51ad-4dc1-916a-68c53619533c)# 재래시장 배달서비스
 
 ## 프로젝트 목적
 **Admin** : B2B, B2C 관리하는 관리자
@@ -41,28 +41,34 @@
 > B2B (Owner)
 
 1. **로그인/로그아웃**
+![image (1)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/7b945ecc-ea38-40a6-9612-43cbf96378ca)
 2. <sup>회원가입</sup></p>
 3. **가게 정보**
+![image (3)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/3d4e577c-fa8e-44d6-a6a6-3c303ddac9de)
      - **조회**
      - <sup>저장</sup>
 4. **메뉴 등록**
+![image (4)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/dfcbd5d7-7097-474a-a9b0-f11cfdc8a6c6)
      - **메뉴 조회**
      - **메뉴 필터**
          - **판매 중**
          - **품절 메뉴**
          - **숨긴 메뉴**
      - **메뉴 상세 (수정, 저장)**
+![image (5)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/2d10233f-33a8-40fa-a253-f4ed1a6abe01)
          - <sup>사진 추가</sup>
          - **메뉴명/메뉴설명/메뉴가격/메뉴상태**
          - **옵션 추가/삭제**
          - <sup>옵션 저장</sup>
 5. **주문 접수**
+![image (2)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/24e5b92f-2710-4cde-8aa5-7629c0e96f8c)
      - **주문 내역 조회**
      - **주문 상세**
      - **주문 상태 (접수 중)**
          - **주문 접수 버튼 (주문 상태 : 접수 중 -> 주문)**
      - <sup>주문 내역 조회 (검색)</sup>
 6. **마이페이지**
+![image (6)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/c7cfde27-5853-4f46-9919-4af0f2923f4f)
      - **정보 조회**
      - <sup>정보 사진 등록</sup>
      - **정보 수정**
@@ -70,12 +76,16 @@
 > B2C (Customer)
 
 1. **로그인/로그아웃**
+![image (1)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/7b945ecc-ea38-40a6-9612-43cbf96378ca)
 2. <sup>회원가입</sup>
 3. **매장 찾기**
+![image (7)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/1e3b456d-dfe1-41bd-ad12-488a208b9e77)
      - **매장 조회**
 4. **메뉴 접수**
+![image (8)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/2a45dca3-a61e-4b72-b6b9-8e23fd549c46)
      - **메뉴 조회**
      - **메뉴 상세**
+![image (9)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/967c82ee-ea9e-463d-8577-fb88732e3738)
          - <sup>옵션 선택</sup>
          - **메뉴 주문**
      - **메뉴 상세 (수정, 저장)**
@@ -84,12 +94,15 @@
          - **옵션 추가/삭제**
          - <sup>옵션 저장</sup>
 5. **주문 내역**
+![image (10)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/6733eacb-3376-4d4c-8e77-bd4b2fbcd8ff)
      - **주문 내역 조회**
      - **주문 내역 상세**
+![image (11)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/4ffec581-1643-4692-8293-d34fa1a3c3cf)
          - <sup>주문 취소</sup>
          - <sup>배송 현황</sup>
      - <sup>주문 내역 조회 (검색)</sup>
 6. **마이페이지**
+![image (12)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/2f45299d-8e83-4399-a3f8-46504e8a2c1c)
      - **정보 조회**
      - **정보 수정**
 
@@ -104,6 +117,7 @@
 4. [B2B/B2C] 리뷰 (별점)
 5. [B2B] 매장 즐겨찾기, 즐겨찾기 목록
 6. [B2C] 내 주변 매장 찾기 (위치)
+7. [B2C] 메뉴 옵션 선택
 
 ## 느낀 점
 1. 데이터베이스 설계가 중요하다는 것을 느꼈다, 정확하고 효율적인 데이터 관리는 시스템의 성능과 안정성을 유지하는 데 필수적이라는 것을 느꼈다.
