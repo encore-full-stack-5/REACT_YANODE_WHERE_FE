@@ -1,4 +1,4 @@
-![image (10)](https://github.com/encore-full-stack-5/react_yanode_where_FE/assets/125454927/3cedcd46-51ad-4dc1-916a-68c53619533c)# 재래시장 배달서비스
+# 재래시장 배달서비스
 
 ## 프로젝트 목적
 **Admin** : B2B, B2C 관리하는 관리자
